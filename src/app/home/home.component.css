@@ -1,0 +1,7 @@
+:host /deep/ .mdl-card {
+  width: 100%;
+}
+
+.mdl-cell--6-col {
+  margin: 0 5px 10px 0;
+}
