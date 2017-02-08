@@ -1,0 +1,46 @@
+.mdl-grid {
+  justify-content: space-around;
+}
+
+.mdl-card {
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+input {
+  outline: none;
+}
+
+.mdl-list__item.clickable:hover {
+  background: #eee;
+  cursor: pointer;
+}
+
+.demo-avatar-dropdown {
+  padding: 20px;
+}
+
+.demo-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 24px;
+}
+
+.mdl-navigation__link i {
+  padding-right: 10px;
+}
+
+.mdl-layout__drawer .mdl-navigation .mdl-navigation__link {
+  color: whitesmoke;
+}
+.mdl-layout__drawer .mdl-navigation .mdl-navigation__link:hover {
+  color: #777;
+}
+
+.mdl-card__title {
+  color: rgb(0,188,212);
+}
+
+.material-icons {
+  color: rgb(255,171,64);
+}

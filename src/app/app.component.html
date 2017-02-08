@@ -1,3 +1,24 @@
-<h1>
-  {{title}}
-</h1>
+<div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <div class="demo-header mdl-layout__header mdl-color-text--white">
+    <header class="">
+      <div class="mdl-layout__header-row">
+        <span class="mdl-layout-title">Dashing</span>
+      </div>
+    </header>
+  </div>
+  <div class="demo-drawer mdl-color-text--white mdl-layout__drawer mdl-color--blue-grey-900">
+    <div class="demo-avatar-dropdown">
+      <img src="assets/user.jpg" class="demo-avatar">
+      <span>hello@example.com</span>
+    </div>
+    <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
+      <a routerLink="/home" class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>Home</a>
+      <a routerLink="/portfolios" class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">work</i>Portfolios</a>
+      <a routerLink="/stocks" class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">trending_up</i>Stocks</a>
+      <div class="mdl-layout-spacer"></div>
+    </nav>
+  </div>
+  <main class="mdl-layout__content mdl-color--grey-100">
+    <router-outlet></router-outlet>
+  </main>
+</div>
