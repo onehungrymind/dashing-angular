@@ -14,6 +14,7 @@ import { ActivePortfoliosComponent } from './portfolios/active-portfolios/active
 import { PortfoliosByRiskComponent } from './portfolios/portfolios-by-risk/portfolios-by-risk.component';
 import { StockHistoryComponent } from './stocks/stock-history/stock-history.component';
 import { SymbolsComponent } from './stocks/symbols/symbols.component';
+import { PerformanceComponent } from './performance/performance.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { SymbolsComponent } from './stocks/symbols/symbols.component';
     ActivePortfoliosComponent,
     PortfoliosByRiskComponent,
     StockHistoryComponent,
-    SymbolsComponent
+    SymbolsComponent,
+    PerformanceComponent
   ],
   imports: [
     BrowserModule,
