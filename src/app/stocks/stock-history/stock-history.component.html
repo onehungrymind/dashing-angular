@@ -14,7 +14,7 @@
       </tr>
       </thead>
       <tbody>
-      <tr ng-repeat="quote in $ctrl.history">
+      <tr *ngFor="let quote of history">
         <td class="mdl-data-table__cell--non-numeric">{{quote.Symbol}}</td>
         <td>{{quote.Date | date: 'MMM dd, yyyy'}}</td>
         <td>{{quote.Open}}</td>

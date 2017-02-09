@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
+import { SymbolService } from "../../shared/symbol.service";
+import { Observable } from "rxjs";
 
 @Component({
   selector: 'app-symbols',
@@ -6,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./symbols.component.css']
 })
 export class SymbolsComponent implements OnInit {
-  symbol: Object = {};
-  constructor() { }
+  symbols: Observable<Array<any>>;
+  @Input() current: any;
+  @Output() setCurrentSymbol: EventEmitter<any> = new EventEmitter();
+  constructor(private symbolService: SymbolService) { }
 
   ngOnInit() {
+    this.symbols = this.symbolService.all();
   }
 
 }

@@ -13,6 +13,6 @@ export class StockService {
   }
 
   getStocks (symbol) {
-    return this.http.get(this.getURL(symbol));
+    return this.http.get(this.getURL(symbol)).map(res => res.json());
   };
 }

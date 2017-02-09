@@ -21,11 +21,10 @@ export class SymbolService {
 
   setCurrentSymbol(symbol) {
     this.currentSymbol = symbol;
-    // $rootScope.$broadcast('setSymbol', symbol);
   };
 
   getCurrentSymbol() {
-    return this.currentSymbol;
+    return this.currentSymbol || 'AAPL';
   };
 }
 
