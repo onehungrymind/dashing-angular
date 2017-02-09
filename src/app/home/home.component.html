@@ -1,6 +1,6 @@
 <div class="mdl-grid">
   <div class="mdl-cell--6-col">
-    <app-portfolio-list portfolios="$ctrl.portfolios"></app-portfolio-list>
+    <app-portfolio-list [disable-actions]="true" [portfolios]="portfolios | async"></app-portfolio-list>
   </div>
   <div class="mdl-cell--6-col">
     <app-stock-history></app-stock-history>

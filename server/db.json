@@ -20,6 +20,13 @@
       "symbol": "MSFT",
       "risk": 1,
       "active": true
+    },
+    {
+      "name": "Thing",
+      "risk": "1",
+      "symbol": "AAPL",
+      "active": false,
+      "id": 4
     }
   ],
   "symbols": [

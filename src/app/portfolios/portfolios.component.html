@@ -1,10 +1,12 @@
 <div class="mdl-grid">
   <!--<ui-view class="mdl-cell&#45;&#45;12-col"></ui-view>-->
-  <app-portfolio-list portfolios="$ctrl.portfolios"
-                  select="$ctrl.setCurrentPortfolio(portfolio)"
-                  delete="$ctrl.deletePortfolio($event, id)"
+  <app-portfolio-list [portfolios]="portfolios"
+                  (select)="setCurrentPortfolio($event)"
+                  (delete)="deletePortfolio($event)"
                   class="mdl-cell--4-col"></app-portfolio-list>
-  <app-portfolio-details portfolio="$ctrl.currentPortfolio" save="$ctrl.savePortfolio(portfolio)" class="mdl-cell--4-col"></app-portfolio-details>
+  <app-portfolio-details [portfolio]="currentPortfolio"
+                  (save)="savePortfolio($event)"
+                  class="mdl-cell--4-col"></app-portfolio-details>
   <div class="mdl-cell--4-col">
     <div class="mdl-card mdl-shadow--2dp">
       <!--<tabs active="0">

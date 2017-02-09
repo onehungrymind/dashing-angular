@@ -15,12 +15,8 @@ export class SymbolService {
 
   constructor(private http: Http) { }
 
-  cacheData(results) {
-    return this.data = results.json();
-  };
-
   all() {
-    return this.data ? Observable.of(this.data) : this.http.get(this.url).map(this.cacheData.bind(this));
+    return this.http.get(this.url).map(res => res.json());
   };
 
   setCurrentSymbol(symbol) {

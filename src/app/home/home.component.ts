@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PortfolioService } from '../shared';
+import { Observable } from "rxjs";
 import 'rxjs/add/operator/map';
 
 @Component({
@@ -9,12 +10,16 @@ import 'rxjs/add/operator/map';
 
 })
 export class HomeComponent implements OnInit {
-
+  portfolios: any;
   constructor(
     private portfolioService: PortfolioService
   ) { }
 
   ngOnInit() {
+    this.getPortfolios();
   }
 
+  getPortfolios() {
+    this.portfolios = this.portfolioService.all();
+  }
 }

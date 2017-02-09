@@ -1,24 +1,24 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { ENDPOINT_URI } from './constants';
+import { Observable } from "rxjs";
 
 @Injectable()
 export class PortfolioService {
   model: string = '/portfolios';
-  data: any;
+  data: Array<any>;
   constructor(private http: Http) {}
 
   get url() {
     return `${ENDPOINT_URI}${this.model}`;
   }
 
-  cacheData(results) {
-    this.data = results.data;
-    return this.data;
+  esctractData(results) {
+    return this.data = results.json();
   };
 
-  all() {
-    return this.http.get(this.url);
+  all(): Observable<Array<any>> {
+    return this.http.get(this.url).map(this.esctractData.bind(this));
   };
 
   create(portfolio) {
@@ -26,11 +26,11 @@ export class PortfolioService {
   };
 
   update(portfolio) {
-    return this.http.put(this.url + '/' + portfolio.id, portfolio);
+    return this.http.put(`${this.url}/${portfolio.id}`, portfolio);
   };
 
   delete(id) {
-    return this.http.delete(this.url + '/' + id);
+    return this.http.delete(`${this.url}/${id}`);
   };
 
   // setCurrentPortfolio(portfolio) {
