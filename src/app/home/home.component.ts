@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PortfolioService } from '../shared';
+import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +10,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private portfolioService: PortfolioService
+  ) { }
 
   ngOnInit() {
   }

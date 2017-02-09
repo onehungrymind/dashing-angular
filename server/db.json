@@ -1,0 +1,169 @@
+{
+  "portfolios": [
+    {
+      "id": 1,
+      "name": "Portfolio the First",
+      "symbol": "MSFT",
+      "risk": 1,
+      "active": false
+    },
+    {
+      "id": 2,
+      "name": "Portfolio the Second",
+      "symbol": "AAPL",
+      "risk": 3,
+      "active": true
+    },
+    {
+      "id": 3,
+      "name": "Portfolio the Third",
+      "symbol": "MSFT",
+      "risk": 1,
+      "active": true
+    }
+  ],
+  "symbols": [
+    {
+      "id": 1,
+      "code": "MSFT",
+      "entity": "Microsoft"
+    },
+    {
+      "id": 2,
+      "code": "AAPL",
+      "entity": "Apple"
+    },
+    {
+      "id": 3,
+      "code": "GOOG",
+      "entity": "Google"
+    }
+  ],
+  "risks": [
+    1,
+    2,
+    3
+  ],
+  "stocks": [
+    {
+      "id": "573e02fe21e195602fb0a4d1",
+      "Symbol": "AAPL",
+      "Date": "2016-01-10T07:59:41",
+      "Open": 371.44,
+      "Close": 282.92,
+      "Volume": "9,939,641.40"
+    },
+    {
+      "id": "573e02fe054a6e5f76e9d0f4",
+      "Symbol": "AAPL",
+      "Date": "2016-04-30T05:06:52",
+      "Open": 140.89,
+      "Close": 235.96,
+      "Volume": "4,300,147.74"
+    },
+    {
+      "id": "573e02fe445ee9eec1fd97bd",
+      "Symbol": "GOOG",
+      "Date": "2016-02-24T05:06:00",
+      "Open": 152.77,
+      "Close": 229.38,
+      "Volume": "3,251,863.86"
+    },
+    {
+      "id": "573e02fe6f508a4601b4b44a",
+      "Symbol": "GOOG",
+      "Date": "2016-01-15T06:40:41",
+      "Open": 421.21,
+      "Close": 412.94,
+      "Volume": "8,584,497.09"
+    },
+    {
+      "id": "573e02fef489566fe234a7a4",
+      "Symbol": "MSFT",
+      "Date": "2016-03-23T03:57:48",
+      "Open": 363.43,
+      "Close": 478.83,
+      "Volume": "2,608,803.91"
+    },
+    {
+      "id": "573e02fe96e9172de8fe7076",
+      "Symbol": "GOOG",
+      "Date": "2016-04-07T06:37:19",
+      "Open": 427.03,
+      "Close": 416.27,
+      "Volume": "3,674,763.82"
+    },
+    {
+      "id": "573e02fef4e5a9257c409ee5",
+      "Symbol": "MSFT",
+      "Date": "2016-01-28T08:37:07",
+      "Open": 187.27,
+      "Close": 453.65,
+      "Volume": "3,571,257.58"
+    },
+    {
+      "id": "573e02fe179d615ddba7fb46",
+      "Symbol": "GOOG",
+      "Date": "2016-04-22T04:38:17",
+      "Open": 350.18,
+      "Close": 189.24,
+      "Volume": "4,356,300.36"
+    },
+    {
+      "id": "573e02feed9b141186fbd4f5",
+      "Symbol": "AAPL",
+      "Date": "2016-03-26T02:11:24",
+      "Open": 192.28,
+      "Close": 405.13,
+      "Volume": "1,214,398.63"
+    },
+    {
+      "id": "573e02fe44e3e582705055c3",
+      "Symbol": "MSFT",
+      "Date": "2016-05-17T07:44:55",
+      "Open": 289.34,
+      "Close": 338.73,
+      "Volume": "1,526,163.76"
+    },
+    {
+      "id": "573e02fe797f6d997dd61886",
+      "Symbol": "AAPL",
+      "Date": "2016-01-18T03:23:53",
+      "Open": 216.33,
+      "Close": 450.91,
+      "Volume": "5,497,559.91"
+    },
+    {
+      "id": "573e02fe0d0940a09ae0b22d",
+      "Symbol": "AAPL",
+      "Date": "2016-03-22T02:59:33",
+      "Open": 476.54,
+      "Close": 157.01,
+      "Volume": "8,844,853.69"
+    },
+    {
+      "id": "573e02fe70eec627af3d4f77",
+      "Symbol": "GOOG",
+      "Date": "2016-03-27T12:24:19",
+      "Open": 195.64,
+      "Close": 277.9,
+      "Volume": "2,866,428.30"
+    },
+    {
+      "id": "573e02fe472a4446104a179e",
+      "Symbol": "GOOG",
+      "Date": "2016-04-26T11:03:07",
+      "Open": 447.34,
+      "Close": 305.58,
+      "Volume": "1,322,062.29"
+    },
+    {
+      "id": "573e02febfb32799d4c91f5a",
+      "Symbol": "AAPL",
+      "Date": "2016-04-11T03:15:14",
+      "Open": 132.39,
+      "Close": 441.2,
+      "Volume": "3,919,943.89"
+    }
+  ]
+}

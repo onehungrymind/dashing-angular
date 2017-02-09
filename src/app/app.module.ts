@@ -16,6 +16,13 @@ import { StockHistoryComponent } from './stocks/stock-history/stock-history.comp
 import { SymbolsComponent } from './stocks/symbols/symbols.component';
 import { PerformanceComponent } from './performance/performance.component';
 
+import {
+  PortfolioService,
+  StockService,
+  RiskService,
+  SymbolService
+} from './shared';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +43,12 @@ import { PerformanceComponent } from './performance/performance.component';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    PortfolioService,
+    StockService,
+    RiskService,
+    SymbolService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
