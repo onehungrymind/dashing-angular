@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { PortfolioService } from '../common/services/portfolio.service';
+import { Store } from '@ngrx/store';
+import { Portfolio } from '../common/models/portfolio.model';
+import * as reducers from '../common/reducers';
+import * as actions from '../common/actions/portfolio.actions';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-portfolios',
@@ -7,33 +11,37 @@ import { PortfolioService } from '../common/services/portfolio.service';
   styleUrls: ['./portfolios.component.css']
 })
 export class PortfoliosComponent implements OnInit {
-  currentPortfolio: any;
-  portfolios: Array<any>;
-  constructor(private portfolioService: PortfolioService) { }
+  currentPortfolio: Portfolio;
+  portfolios: Portfolio[];
+
+  portfolios$: Observable<Portfolio[]>;
+  currentPortfolio$: Observable<Portfolio>;
+
+  constructor(private store: Store<reducers.State>) {
+    this.portfolios$ = store.select(reducers.getPortfolios);
+    this.currentPortfolio$ = store.select(reducers.getSelectedPortfolio);
+  }
 
   ngOnInit() {
-    this.getPortfolios();
+    this.store.dispatch(new actions.LoadAction());
   }
 
-  getPortfolios() {
-    this.portfolioService.all()
-      .subscribe(portfolios => {
-        this.portfolios = portfolios;
-      });
-  }
+  setCurrentPortfolio(portfolio) {
+    this.store.dispatch(new actions.SelectAction(portfolio));
+  };
 
   createPortfolio(portfolio) {
-    this.portfolioService.create(portfolio)
-      .subscribe(response => {
-        this.getPortfolios();
-      });
+    // this.portfolioService.create(portfolio)
+    //   .subscribe(response => {
+    //     this.getPortfolios();
+    //   });
   }
 
   updatePortfolio(portfolio) {
-    this.portfolioService.update(portfolio)
-      .subscribe(response => {
-        this.getPortfolios();
-      });
+    // this.portfolioService.update(portfolio)
+    //   .subscribe(response => {
+    //     this.getPortfolios();
+    //   });
   }
 
   savePortfolio(portfolio) {
@@ -45,13 +53,9 @@ export class PortfoliosComponent implements OnInit {
   };
 
   deletePortfolio(id) {
-    this.portfolioService.delete(id)
-      .subscribe(() => {
-        this.getPortfolios();
-      });
-  };
-
-  setCurrentPortfolio(portfolio) {
-    this.currentPortfolio = portfolio;
+    // this.portfolioService.delete(id)
+    //   .subscribe(() => {
+    //     this.getPortfolios();
+    //   });
   };
 }

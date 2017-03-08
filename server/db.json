@@ -4,7 +4,7 @@
       "id": "1",
       "name": "Portfolio the First",
       "symbol": "MSFT",
-      "risk": 1,
+      "risk": "1",
       "active": false
     },
     {
@@ -18,7 +18,7 @@
       "id": "3",
       "name": "Portfolio the Third",
       "symbol": "MSFT",
-      "risk": 1,
+      "risk": "1",
       "active": true
     },
     {
@@ -67,7 +67,7 @@
       "date": "2016-01-10T07:59:41",
       "open": 371.44,
       "close": 282.92,
-      "volume": 9939641.40
+      "volume": 9939641.4
     },
     {
       "id": "573e02fe054a6e5f76e9d0f4",
@@ -163,7 +163,7 @@
       "date": "2016-03-27T12:24:19",
       "open": 195.64,
       "close": 277.9,
-      "volume": 2866428.30
+      "volume": 2866428.3
     },
     {
       "id": "573e02fe472a4446104a179e",

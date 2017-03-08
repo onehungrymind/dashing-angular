@@ -1,8 +1,15 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { RiskService } from '../../common/services/risk.service';
-import { SymbolService } from '../../common/services/symbol.service';
+import { Store } from '@ngrx/store';
+
+import { Risk } from '../../common/models/risk.model';
+import { Symbol } from '../../common/models/symbol.model';
+
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/combineLatest';
+
+import * as reducers from '../../common/reducers';
+import * as riskActions from '../../common/actions/risk.actions';
+import * as symbolActions from '../../common/actions/symbol.actions';
 
 @Component({
   selector: 'app-portfolio-details',
@@ -11,25 +18,35 @@ import 'rxjs/add/observable/combineLatest';
 })
 export class PortfolioDetailsComponent implements OnInit {
   @Input() set portfolio(portfolio) {
-    this.portfolioCopy = Object.assign({}, portfolio);
+    this.currentPortfolio = Object.assign({}, portfolio);
   }
   @Output() save: EventEmitter<any> = new EventEmitter();
-  portfolioCopy: any = this.initPortfolio();
-  risks: Array<any>;
-  symbols: Array<any>;
+  currentPortfolio: any = this.initPortfolio();
+
+  risks$: Observable<Array<Risk>>;
+  symbols$: Observable<Array<Symbol>>;
 
   constructor(
-    private riskService: RiskService,
-    private symbolService: SymbolService
-  ) { }
+    private store: Store<reducers.State>
+  ) {
+    this.risks$ = store.select(reducers.getRisks);
+    this.symbols$ = store.select(reducers.getSymbols);
+  }
 
   ngOnInit() {
-    Observable.combineLatest(this.riskService.all(), this.symbolService.all())
-      .subscribe(bundle => {
-        this.risks = bundle[0];
-        this.symbols = bundle[1];
-      });
+    this.store.dispatch(new riskActions.LoadAction());
+    this.store.dispatch(new symbolActions.LoadAction());
   }
+
+  cancel() {
+    this.currentPortfolio = this.initPortfolio();
+  }
+
+  savePortfolio(event) {
+    event.preventDefault();
+    this.save.emit(this.currentPortfolio);
+    this.currentPortfolio = this.initPortfolio();
+  };
 
   initPortfolio() {
     return {
@@ -39,14 +56,4 @@ export class PortfolioDetailsComponent implements OnInit {
       active: false
     };
   }
-
-  cancel() {
-    this.portfolioCopy = this.initPortfolio();
-  }
-
-  savePortfolio(event) {
-    event.preventDefault();
-    this.save.emit(this.portfolioCopy);
-    this.portfolioCopy = this.initPortfolio();
-  };
 }

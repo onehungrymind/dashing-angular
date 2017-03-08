@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { ENDPOINT_URI } from '../constants';
 import { Observable } from 'rxjs/Observable';
+import { Portfolio } from '../models/portfolio.model';
 
 @Injectable()
 export class PortfolioService {
@@ -18,8 +19,9 @@ export class PortfolioService {
     return this.data = results.json();
   };
 
-  all(): Observable<Array<any>> {
-    return this.http.get(this.url).map(this.extractData.bind(this));
+  all(): Observable<Array<Portfolio>> {
+    return this.http.get(this.url)
+      .map(res => res.json());
   };
 
   create(portfolio) {

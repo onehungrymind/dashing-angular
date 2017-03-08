@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Portfolio } from '../../common/models/portfolio.model';
 
 @Component({
   selector: 'app-portfolio-list',
@@ -6,7 +7,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./portfolio-list.component.css']
 })
 export class PortfolioListComponent implements OnInit {
-  @Input() portfolios: Array<any>;
+  @Input() portfolios: Array<Portfolio>;
   @Input() disableActions: Boolean = false;
   @Output() select: EventEmitter<any> = new EventEmitter();
   @Output() delete: EventEmitter<any> = new EventEmitter();

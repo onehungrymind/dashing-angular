@@ -1,13 +1,15 @@
 <div class="mdl-grid">
-  <app-portfolio-list [portfolios]="portfolios"
+  <app-portfolio-list [portfolios]="portfolios$ | async"
                   (select)="setCurrentPortfolio($event)"
                   (delete)="deletePortfolio($event)"
                   class="mdl-cell--4-col"></app-portfolio-list>
-  <app-portfolio-details [portfolio]="currentPortfolio"
+  <app-portfolio-details [portfolio]="currentPortfolio$ | async"
                   (save)="savePortfolio($event)"
                   class="mdl-cell--4-col"></app-portfolio-details>
   <div class="mdl-cell--4-col">
     <div class="mdl-card mdl-shadow--2dp">
+      <pre>{{currentPortfolio$ | async | json}}</pre>
+
       <!--<tabs active="0">
         <tab label="Active">
           <heading>Active portfolios</heading>

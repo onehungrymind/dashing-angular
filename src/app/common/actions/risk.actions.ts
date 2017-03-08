@@ -4,13 +4,20 @@ import { type } from '../util';
 
 export const ActionTypes = {
   LOAD: type('[Risk] Load'),
+  LOAD_SUCCESS: type('[Risk] Load Success'),
   SELECT: type('[Risk] Select'),
 };
 
 export class LoadAction implements Action {
   type = ActionTypes.LOAD;
 
-  constructor(public payload: Risk) { }
+  constructor() { }
+}
+
+export class LoadActionSuccess implements Action {
+  type = ActionTypes.LOAD_SUCCESS;
+
+  constructor(public payload: Risk[]) { }
 }
 
 export class SelectAction implements Action {
@@ -25,4 +32,5 @@ export class SelectAction implements Action {
  */
 export type Actions
   = LoadAction
+  | LoadActionSuccess
   | SelectAction;

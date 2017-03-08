@@ -1,24 +1,24 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
 import { Actions, Effect } from '@ngrx/effects';
-import { Observable } from 'rxjs/Observable';
+
+import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/switchMap';
+
+import * as symbol from '../actions/symbol.actions';
+import { SymbolService } from '../services/symbol.service';
 
 @Injectable()
 export class SymbolEffects {
   constructor(
-    private http: Http,
+    private symbolService: SymbolService,
     private actions$: Actions
   ) { }
 
-  // @Effect() login$ = this.actions$
-  //   // Listen for the 'LOGIN' action
-  //   .ofType('LOGIN')
-  //   // Map the payload into JSON to use as the request body
-  //   .map(action => JSON.stringify(action.payload))
-  //   .switchMap(payload => this.http.post('/auth', payload)
-  //       // If successful, dispatch success action with result
-  //       .map(res => ({type: 'LOGIN_SUCCESS', payload: res.json()}))
-  //       // If request fails, dispatch failed action
-  //       .catch(() => Observable.of({type: 'LOGIN_FAILED'}))
-  //   );
+  @Effect() load$ = this.actions$
+    .ofType(symbol.ActionTypes.LOAD)
+    .switchMap(() => this.symbolService.all())
+    .map(symbols => new symbol.LoadActionSuccess(symbols))
+  ;
 }

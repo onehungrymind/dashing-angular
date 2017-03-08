@@ -1,4 +1,5 @@
-import { ActionReducer, combineReducers, State } from '@ngrx/store';
+import { createSelector } from 'reselect';
+import { ActionReducer, combineReducers } from '@ngrx/store';
 import { compose } from '@ngrx/core/compose';
 import { storeFreeze } from 'ngrx-store-freeze';
 import { environment } from '../../../environments/environment';
@@ -32,3 +33,34 @@ export function reducer(state: any, action: any) {
     return developmentReducer(state, action);
   }
 }
+
+// -------------------------------------------------------------------
+// Portfolio Selectors
+// -------------------------------------------------------------------
+export const getPortfoliosState = (state: State) => state.portfolios;
+export const getPortfolioIDs = createSelector(getPortfoliosState, portfolios.getIds);
+export const getPortfolioEntities = createSelector(getPortfoliosState, portfolios.getEntities);
+export const getSelectedPortfolio = createSelector(getPortfoliosState, portfolios.getSelected);
+export const getPortfolios = createSelector(getPortfolioEntities, getPortfolioIDs, (entities, ids) => {
+  return ids.map(id => entities[id]);
+});
+
+// -------------------------------------------------------------------
+// Risk Selectors
+// -------------------------------------------------------------------
+export const getRisksState = (state: State) => state.risks;
+export const getRiskIDs = createSelector(getRisksState, risks.getIds);
+export const getRiskEntities = createSelector(getRisksState, risks.getEntities);
+export const getRisks = createSelector(getRiskEntities, getRiskIDs, (entities, ids) => {
+  return ids.map(id => entities[id]);
+});
+
+// -------------------------------------------------------------------
+// Symbol Selectors
+// -------------------------------------------------------------------
+export const getSymbolsState = (state: State) => state.symbols;
+export const getSymbolIDs = createSelector(getSymbolsState, symbols.getIds);
+export const getSymbolEntities = createSelector(getSymbolsState, symbols.getEntities);
+export const getSymbols = createSelector(getSymbolEntities, getSymbolIDs, (entities, ids) => {
+  return ids.map(id => entities[id]);
+});

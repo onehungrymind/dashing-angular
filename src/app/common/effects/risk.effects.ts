@@ -1,24 +1,24 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
 import { Actions, Effect } from '@ngrx/effects';
-import { Observable } from 'rxjs/Observable';
+
+import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/switchMap';
+
+import * as risk from '../actions/risk.actions';
+import { RiskService } from '../services/risk.service';
 
 @Injectable()
 export class RiskEffects {
   constructor(
-    private http: Http,
+    private riskService: RiskService,
     private actions$: Actions
   ) { }
 
-  // @Effect() login$ = this.actions$
-  //   // Listen for the 'LOGIN' action
-  //   .ofType('LOGIN')
-  //   // Map the payload into JSON to use as the request body
-  //   .map(action => JSON.stringify(action.payload))
-  //   .switchMap(payload => this.http.post('/auth', payload)
-  //       // If successful, dispatch success action with result
-  //       .map(res => ({type: 'LOGIN_SUCCESS', payload: res.json()}))
-  //       // If request fails, dispatch failed action
-  //       .catch(() => Observable.of({type: 'LOGIN_FAILED'}))
-  //   );
+  @Effect() load$ = this.actions$
+    .ofType(risk.ActionTypes.LOAD)
+    .switchMap(() => this.riskService.all())
+    .map(risks => new risk.LoadActionSuccess(risks))
+  ;
 }
