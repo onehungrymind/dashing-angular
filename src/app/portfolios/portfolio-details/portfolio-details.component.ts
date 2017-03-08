@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { RiskService } from '../../common/services/risk.service';
 import { SymbolService } from '../../common/services/symbol.service';
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/combineLatest';
 
 @Component({
   selector: 'app-portfolio-details',

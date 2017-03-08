@@ -14,7 +14,7 @@
         <label>Risk level</label>
         <select [(ngModel)]="portfolioCopy.risk" name="risk">
           <option [selected]="true" value="undefined">Select...</option>
-          <option *ngFor="let risk of risks" [value]="risk">{{risk}}</option>
+          <option *ngFor="let risk of risks" [value]="risk">{{risk.description}}</option>
         </select>
         <br>
         <br>
