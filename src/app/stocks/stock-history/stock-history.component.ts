@@ -1,8 +1,6 @@
-import { Component, OnInit, Input, EventEmitter, Output, OnChanges } from '@angular/core';
-import { StockService } from "../../shared/stock.service";
-import { SymbolService } from "../../shared/symbol.service";
-import { Observable } from "rxjs";
-import 'rxjs/add/operator/take';
+import { Component, Input, OnChanges } from '@angular/core';
+import { StockService } from '../../common/services/stock.service';
+import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'app-stock-history',

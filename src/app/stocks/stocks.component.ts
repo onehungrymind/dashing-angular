@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SymbolService } from "../shared/symbol.service";
+import { SymbolService } from '../common/services/symbol.service';
 
 @Component({
   selector: 'app-stocks',

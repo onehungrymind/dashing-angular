@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { PortfolioService } from '../shared';
-import { Observable } from "rxjs";
-import 'rxjs/add/operator/map';
-import { SymbolService } from "../shared/symbol.service";
+import { PortfolioService } from '../common/services/portfolio.service';
+import { SymbolService } from '../common/services/symbol.service';
 
 @Component({
   selector: 'app-home',

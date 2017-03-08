@@ -1,20 +1,18 @@
 import { Injectable } from '@angular/core';
-import { ENDPOINT_URI } from "./constants";
-import { Http } from "@angular/http";
-import { Observable } from "rxjs";
+import { ENDPOINT_URI } from '../constants';
+import { Http } from '@angular/http';
 
 @Injectable()
 export class RiskService {
-  data: any;
-  model: string = '/risks';
+  model = '/risks';
+
+  constructor(private http: Http) { }
+
   get url() {
     return ENDPOINT_URI + this.model;
   }
 
-  constructor(private http: Http) { }
-
   all() {
     return this.http.get(this.url).map(res => res.json());
   };
-
 }

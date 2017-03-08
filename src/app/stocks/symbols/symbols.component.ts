@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
-import { SymbolService } from "../../shared/symbol.service";
-import { Observable } from "rxjs";
+import { SymbolService } from '../../common/services/symbol.service';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-symbols',

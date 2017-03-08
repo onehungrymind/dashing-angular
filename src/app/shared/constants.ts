@@ -1,1 +1,0 @@
-export const ENDPOINT_URI: string = 'http://localhost:3000';

@@ -15,11 +15,11 @@
       </thead>
       <tbody>
       <tr *ngFor="let quote of history">
-        <td class="mdl-data-table__cell--non-numeric">{{quote.Symbol}}</td>
-        <td>{{quote.Date | date: 'MMM dd, yyyy'}}</td>
-        <td>{{quote.Open}}</td>
-        <td>{{quote.Close}}</td>
-        <td>{{quote.Volume}}</td>
+        <td class="mdl-data-table__cell--non-numeric">{{quote.symbol}}</td>
+        <td>{{quote.date | date: 'MMM dd, yyyy'}}</td>
+        <td>{{quote.open | currency:'USD':true}}</td>
+        <td>{{quote.close | currency:'USD':true}}</td>
+        <td>{{quote.volume}}</td>
       </tr>
       </tbody>
     </table>

@@ -1,7 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { PortfolioService } from "../shared/portfolio.service";
-import { Observable } from "rxjs";
-import * as _ from 'lodash';
+import { Component, OnInit } from '@angular/core';
+import { PortfolioService } from '../common/services/portfolio.service';
+
 @Component({
   selector: 'app-portfolios',
   templateUrl: './portfolios.component.html',

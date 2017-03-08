@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { RiskService } from "../../shared/risk.service";
-import { SymbolService } from "../../shared/symbol.service";
-import { Observable } from "rxjs";
+import { RiskService } from '../../common/services/risk.service';
+import { SymbolService } from '../../common/services/symbol.service';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-portfolio-details',

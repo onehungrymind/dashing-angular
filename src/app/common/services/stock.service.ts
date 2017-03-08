@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { ENDPOINT_URI } from "./constants";
-import { Http } from "@angular/http";
+import { ENDPOINT_URI } from '../constants';
+import { Http } from '@angular/http';
 
 @Injectable()
 export class StockService {
-  model: string = '/stocks';
+  model = '/stocks';
 
   constructor(private http: Http) { }
 

@@ -1,5 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { PortfolioService } from "../../shared";
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-portfolio-list',
@@ -8,7 +7,7 @@ import { PortfolioService } from "../../shared";
 })
 export class PortfolioListComponent implements OnInit {
   @Input() portfolios: Array<any>;
-  @Input('disable-actions') disableActions: Boolean = false;
+  @Input() disableActions: Boolean = false;
   @Output() select: EventEmitter<any> = new EventEmitter();
   @Output() delete: EventEmitter<any> = new EventEmitter();
 

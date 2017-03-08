@@ -1,24 +1,25 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import { ENDPOINT_URI } from './constants';
-import { Observable } from "rxjs";
+import { ENDPOINT_URI } from '../constants';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class PortfolioService {
-  model: string = '/portfolios';
+  model = '/portfolios';
   data: Array<any>;
+
   constructor(private http: Http) {}
 
   get url() {
     return `${ENDPOINT_URI}${this.model}`;
   }
 
-  esctractData(results) {
+  extractData(results) {
     return this.data = results.json();
   };
 
   all(): Observable<Array<any>> {
-    return this.http.get(this.url).map(this.esctractData.bind(this));
+    return this.http.get(this.url).map(this.extractData.bind(this));
   };
 
   create(portfolio) {
