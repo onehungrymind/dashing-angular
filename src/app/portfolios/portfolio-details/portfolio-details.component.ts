@@ -1,11 +1,11 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Store } from '@ngrx/store';
-
-import { Risk } from '../../common/models/risk.model';
-import { Symbol } from '../../common/models/symbol.model';
-
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/combineLatest';
+
+import { Portfolio } from '../../common/models/portfolio.model';
+import { Risk } from '../../common/models/risk.model';
+import { Symbol } from '../../common/models/symbol.model';
 
 import * as reducers from '../../common/reducers';
 import * as riskActions from '../../common/actions/risk.actions';
@@ -21,7 +21,7 @@ export class PortfolioDetailsComponent implements OnInit {
     this.currentPortfolio = Object.assign({}, portfolio);
   }
   @Output() save: EventEmitter<any> = new EventEmitter();
-  currentPortfolio: any = this.initPortfolio();
+  currentPortfolio: Portfolio = this.initPortfolio();
 
   risks$: Observable<Array<Risk>>;
   symbols$: Observable<Array<Symbol>>;
@@ -48,11 +48,12 @@ export class PortfolioDetailsComponent implements OnInit {
     this.currentPortfolio = this.initPortfolio();
   };
 
-  initPortfolio() {
+  initPortfolio(): Portfolio {
     return {
+      id: null,
       name: '',
-      symbol: undefined,
-      risk: undefined,
+      symbol: null,
+      risk: null,
       active: false
     };
   }

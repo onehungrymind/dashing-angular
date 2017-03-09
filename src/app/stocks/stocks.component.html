@@ -1,6 +1,11 @@
 <div class="mdl-grid">
   <app-performance class="mdl-cell--12-col"></app-performance>
-  <app-stock-history [current]="currentSymbol" class="mdl-cell--8-col"></app-stock-history>
-  <app-symbols [current]="currentSymbol"
-    (setCurrentSymbol)="setCurrentSymbol($event)" class="mdl-cell--4-col"></app-symbols>
+  <app-stock-history
+    [history]="stockHistory$ | async" class="mdl-cell--8-col">
+  </app-stock-history>
+  <app-symbols
+    [current]="currentSymbol$ | async"
+    [symbols]="symbols$ | async"
+    (select)="setCurrentSymbol($event)" class="mdl-cell--4-col">
+  </app-symbols>
 </div>

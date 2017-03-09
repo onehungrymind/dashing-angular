@@ -11,9 +11,6 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['./portfolios.component.css']
 })
 export class PortfoliosComponent implements OnInit {
-  currentPortfolio: Portfolio;
-  portfolios: Portfolio[];
-
   portfolios$: Observable<Portfolio[]>;
   currentPortfolio$: Observable<Portfolio>;
 

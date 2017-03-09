@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { ENDPOINT_URI } from '../constants';
 import { Http } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import { Stock } from '../models/stock.model';
 
 @Injectable()
 export class StockService {
@@ -8,11 +10,16 @@ export class StockService {
 
   constructor(private http: Http) { }
 
-  getURL(symbol) {
-    return `${ENDPOINT_URI}${this.model}?Symbol=${symbol}`;
+  getURL() {
+    return `${ENDPOINT_URI}${this.model}`;
   }
 
-  getStocks (symbol) {
-    return this.http.get(this.getURL(symbol)).map(res => res.json());
+  all(): Observable<Array<Stock>> {
+    return this.http.get(this.getURL())
+      .map(res => res.json());
+  };
+
+  getStockHistory(symbol) {
+    return this.http.get(`${this.getURL()}?symbol=${symbol}`).map(res => res.json());
   };
 }

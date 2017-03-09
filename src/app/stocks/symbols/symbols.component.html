@@ -4,16 +4,17 @@
   </div>
   <div class="mdl-card__supporting-text">
     <ul class="demo-list-control mdl-list">
-      <li *ngFor="let symbol of symbols | async" class="mdl-list__item">
+      <li *ngFor="let symbol of symbols" class="mdl-list__item">
         <span class="mdl-list__item-primary-content">
           {{symbol.entity}} ({{symbol.code}})
         </span>
         <span class="mdl-list__item-secondary-action">
           <label class="mdl-radio">
-            <input (change)="setCurrentSymbol.emit(current)"
+            <!-- TODO change the way we are handling input -->
+            <input (change)="select.emit(current)"
                    [(ngModel)]="current" type="radio"
                    class="mdl-radio__button" name="symbol"
-                   [value]="symbol.code" />
+                   [value]="symbol.id" />
           </label>
         </span>
       </li>

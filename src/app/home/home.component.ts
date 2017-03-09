@@ -1,6 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { PortfolioService } from '../common/services/portfolio.service';
-import { SymbolService } from '../common/services/symbol.service';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs/Observable';
+
+import * as reducers from '../common/reducers';
+import { Portfolio } from '../common/models/portfolio.model';
+import { Stock } from '../common/models/stock.model';
+
+import * as portfolioActions from '../common/actions/portfolio.actions';
+import * as stockActions from '../common/actions/stock.actions';
 
 @Component({
   selector: 'app-home',
@@ -9,20 +16,18 @@ import { SymbolService } from '../common/services/symbol.service';
 
 })
 export class HomeComponent implements OnInit {
-  portfolios: any;
-  currentSymbol: string;
+  portfolios$: Observable<Portfolio[]>;
+  stockHistory$: Observable<Array<Stock>>;
 
   constructor(
-    private portfolioService: PortfolioService,
-    private symbolService: SymbolService
-  ) { }
-
-  ngOnInit() {
-    this.getPortfolios();
-    this.currentSymbol = this.symbolService.getCurrentSymbol();
+    private store: Store<reducers.State>
+  ) {
+    this.portfolios$ = store.select(reducers.getPortfolios);
+    this.stockHistory$ = this.store.select(reducers.getStockHistory);
   }
 
-  getPortfolios() {
-    this.portfolios = this.portfolioService.all();
+  ngOnInit() {
+    this.store.dispatch(new portfolioActions.LoadAction());
+    this.store.dispatch(new stockActions.LoadAction());
   }
 }
