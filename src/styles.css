@@ -1,47 +1,87 @@
 /* You can add global styles to this file, and also import other style files */
-.mdl-grid {
-  justify-content: space-around;
+
+@import '~https://fonts.googleapis.com/icon?family=Material+Icons';
+@import '~@angular/material/core/theming/prebuilt/deeppurple-amber.css';
+
+body {
+    margin: 0;
+    font-family: Roboto, sans-serif;
 }
 
-.mdl-card {
-  margin-bottom: 10px;
-  width: 100%;
+md-toolbar-row {
+    justify-content: space-between;
 }
 
-input {
-  outline: none;
+p {
+    margin: 16px;
 }
 
-.mdl-list__item.clickable:hover {
-  background: #eee;
-  cursor: pointer;
+[md-raised-button] {
+    width: 100%;
 }
 
-.demo-avatar-dropdown {
-  padding: 20px;
+md-grid-list {
+    max-width: 1403px;
+    margin: 16px;
 }
 
-.demo-avatar {
-  width: 48px;
-  height: 48px;
-  border-radius: 24px;
+md-sidenav-layout {
+    height: 100vh;
 }
 
-.mdl-navigation__link i {
-  padding-right: 10px;
+md-sidenav {
+    width: 320px;
 }
 
-.mdl-layout__drawer .mdl-navigation .mdl-navigation__link {
-  color: whitesmoke;
-}
-.mdl-layout__drawer .mdl-navigation .mdl-navigation__link:hover {
-  color: #777;
+md-sidenav a {
+    box-sizing: border-box;
+    display: block;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 47px;
+    text-decoration: none;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    padding: 0 16px;
+    position: relative;
 }
 
-.mdl-card__title {
-  color: rgb(0,188,212);
+
+
+
+
+
+
+.icon-20 {
+    font-size: 20px;
 }
 
-.material-icons {
-  color: rgb(255,171,64);
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+table {
+    border-collapse: collapse;
+    border-radius: 2px;
+    border-spacing: 0;
+    margin: 0 0 32px;
+    width: 100%;
+    box-shadow: 0 2px 2px rgba(0,0,0,.24), 0 0 2px rgba(0,0,0,.12);
+}
+
+th {
+    font-size: 16px;
+    font-weight: 400;
+    padding: 13px 32px;
+    text-align: left;
+    color: rgba(0,0,0,.54);
+    background: rgba(0,0,0,.03);
+}
+
+td {
+    color: rgba(0,0,0,.54);
+    border: 1px solid rgba(0,0,0,.03);
+    font-weight: 400;
+    padding: 8px 30px;
 }

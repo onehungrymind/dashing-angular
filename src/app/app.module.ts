@@ -1,26 +1,19 @@
+import 'hammerjs';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { MaterialModule } from '@angular/material';
 
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
-import {
-  PortfolioEffects,
-  RiskEffects,
-  StockEffects,
-  SymbolEffects
-} from './common/effects';
+import { PortfolioEffects, RiskEffects, StockEffects, SymbolEffects } from './common/effects';
 
 import { reducer } from './common/reducers';
 
-import {
-  PortfolioService,
-  RiskService,
-  StockService,
-  SymbolService
-} from './common/services';
+import { PortfolioService, RiskService, StockService, SymbolService } from './common/services';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -53,6 +46,7 @@ import { PerformanceComponent } from './performance/performance.component';
     BrowserModule,
     FormsModule,
     HttpModule,
+    MaterialModule,
     AppRoutingModule,
     StoreModule.provideStore(reducer),
     EffectsModule.run(PortfolioEffects),

@@ -1,29 +1,9 @@
-<div class="mdl-grid">
+<div>
   <app-portfolio-list [portfolios]="portfolios$ | async"
                   (select)="setCurrentPortfolio($event)"
-                  (delete)="deletePortfolio($event)"
-                  class="mdl-cell--4-col"></app-portfolio-list>
+                  (delete)="deletePortfolio($event)">
+  </app-portfolio-list>
   <app-portfolio-details [portfolio]="currentPortfolio$ | async"
-                  (save)="savePortfolio($event)"
-                  class="mdl-cell--4-col"></app-portfolio-details>
-  <div class="mdl-cell--4-col">
-    <div class="mdl-card mdl-shadow--2dp">
-      <pre>{{currentPortfolio$ | async | json}}</pre>
-
-      <!--<tabs active="0">
-        <tab label="Active">
-          <heading>Active portfolios</heading>
-          <content>
-            <app-active-portfolios portfolios="$ctrl.portfolios"></app-active-portfolios>
-          </content>
-        </tab>
-        <tab label="Risk">
-          <heading>Portfolios by risk</heading>
-          <content>
-            <app-portfolios-by-risk portfolios="$ctrl.portfolios"></app-portfolios-by-risk>
-          </content>
-        </tab>
-      </tabs>-->
-    </div>
-  </div>
+                  (save)="savePortfolio($event)">
+  </app-portfolio-details>
 </div>
