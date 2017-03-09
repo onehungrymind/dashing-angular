@@ -3,9 +3,14 @@
 @import '~https://fonts.googleapis.com/icon?family=Material+Icons';
 @import '~@angular/material/core/theming/prebuilt/deeppurple-amber.css';
 
+html {
+    height: 100%;
+}
 body {
     margin: 0;
     font-family: Roboto, sans-serif;
+    height:100%;
+    display: flex;
 }
 
 md-toolbar-row {
@@ -84,4 +89,13 @@ td {
     border: 1px solid rgba(0,0,0,.03);
     font-weight: 400;
     padding: 8px 30px;
+}
+
+.container {
+    display: flex;
+    margin: 10px;
+}
+
+.container .col {
+    padding: 10px;
 }

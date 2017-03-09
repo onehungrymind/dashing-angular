@@ -1,6 +1,5 @@
-.mdl-list__item:not(:first-of-type):not(:last-of-type) {
+md-list-item:not(:first-of-type) {
   border-top: 1px solid #efefef;
-  border-bottom: 1px solid #efefef;
 }
 
 .symbol {

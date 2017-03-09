@@ -1,11 +1,8 @@
-<div class="mdl-grid">
-  <div class="mdl-cell--6-col">
-    <app-portfolio-list
-      [disableActions]="true"
-      [portfolios]="portfolios$ | async">
-    </app-portfolio-list>
-  </div>
-  <div class="mdl-cell--6-col">
-    <app-stock-history [history]="stockHistory$ | async"></app-stock-history>
-  </div>
+<div class="container">
+  <app-portfolio-list
+    class="col"
+    [disableActions]="true"
+    [portfolios]="portfolios$ | async">
+  </app-portfolio-list>
+  <app-stock-history class="col" [history]="stockHistory$ | async"></app-stock-history>
 </div>

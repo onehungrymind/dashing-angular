@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   links = [
     { path: '/home', icon: 'home', label: 'Home'},
-    { path: '/portfolio', icon: 'work', label: 'Portfolio'},
+    { path: '/portfolios', icon: 'work', label: 'Portfolios'},
     { path: '/stocks', icon: 'trending_up', label: 'Stocks'}
   ];
 }

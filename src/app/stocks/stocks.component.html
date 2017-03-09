@@ -1,11 +1,13 @@
-<div class="mdl-grid">
-  <app-performance class="mdl-cell--12-col"></app-performance>
+<div class="container">
+  <app-performance class="col"></app-performance>
+</div>
+<div class="container">
   <app-stock-history
-    [history]="stockHistory$ | async" class="mdl-cell--8-col">
+    [history]="stockHistory$ | async" class="col">
   </app-stock-history>
   <app-symbols
     [current]="currentSymbol$ | async"
     [symbols]="symbols$ | async"
-    (select)="setCurrentSymbol($event)" class="mdl-cell--4-col">
+    (select)="setCurrentSymbol($event)" class="col">
   </app-symbols>
 </div>
