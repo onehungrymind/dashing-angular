@@ -21,15 +21,11 @@ export class PortfoliosComponent implements OnInit {
 
   ngOnInit() {
     this.store.dispatch(new actions.LoadAction());
-
-    // HOW DO I SEQUENCE THIS?
-    this.portfolios$.subscribe(portfolios => console.log('PORTFOLIOS!', portfolios));
-    this.currentPortfolio$.subscribe(portfolio => console.log('CURRENT PORTFOLIO!', portfolio));
   }
 
   setCurrentPortfolio(portfolio) {
     this.store.dispatch(new actions.SelectAction(portfolio));
-  };
+  }
 
   createPortfolio(portfolio) {
     this.store.dispatch(new actions.CreateAction(portfolio));
@@ -45,9 +41,9 @@ export class PortfoliosComponent implements OnInit {
     } else {
       this.updatePortfolio(portfolio);
     }
-  };
+  }
 
   deletePortfolio(portfolioId) {
     this.store.dispatch(new actions.DeleteAction(portfolioId));
-  };
+  }
 }

@@ -28,6 +28,7 @@ import { PortfoliosByRiskComponent } from './portfolios/portfolios-by-risk/portf
 import { StockHistoryComponent } from './stocks/stock-history/stock-history.component';
 import { SymbolsComponent } from './stocks/symbols/symbols.component';
 import { PerformanceComponent } from './performance/performance.component';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { PerformanceComponent } from './performance/performance.component';
     EffectsModule.run(PortfolioEffects),
     EffectsModule.run(RiskEffects),
     EffectsModule.run(StockEffects),
-    EffectsModule.run(SymbolEffects)
+    EffectsModule.run(SymbolEffects),
+    ChartsModule
   ],
   providers: [
     PortfolioService,

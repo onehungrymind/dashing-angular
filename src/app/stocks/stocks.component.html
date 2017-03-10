@@ -1,13 +1,19 @@
 <div class="container">
-  <app-performance class="col"></app-performance>
-</div>
-<div class="container">
   <app-stock-history
     [history]="stockHistory$ | async" class="col-50">
   </app-stock-history>
-  <app-symbols
-    [current]="currentSymbol$ | async"
-    [symbols]="symbols$ | async"
-    (select)="setCurrentSymbol($event)" class="col-50">
-  </app-symbols>
+  <div layout="column" class="col-50">
+    <app-symbols
+      [current]="currentSymbol$ | async"
+      [symbols]="symbols$ | async"
+      (select)="setCurrentSymbol($event)">
+    </app-symbols>
+
+    <!-- TODO Fix this -->
+    <div style="height: 20px;"></div>
+
+    <app-performance
+      [history]="stockHistory$ | async">
+    </app-performance>
+  </div>
 </div>
