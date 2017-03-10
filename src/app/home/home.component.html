@@ -1,8 +1,8 @@
 <div class="container">
   <app-portfolio-list
-    class="col"
+    class="col-50"
     [disableActions]="true"
     [portfolios]="portfolios$ | async">
   </app-portfolio-list>
-  <app-stock-history class="col" [history]="stockHistory$ | async"></app-stock-history>
+  <app-stock-history class="col-50" [history]="stockHistory$ | async"></app-stock-history>
 </div>

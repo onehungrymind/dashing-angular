@@ -3,11 +3,11 @@
 </div>
 <div class="container">
   <app-stock-history
-    [history]="stockHistory$ | async" class="col">
+    [history]="stockHistory$ | async" class="col-50">
   </app-stock-history>
   <app-symbols
     [current]="currentSymbol$ | async"
     [symbols]="symbols$ | async"
-    (select)="setCurrentSymbol($event)" class="col">
+    (select)="setCurrentSymbol($event)" class="col-50">
   </app-symbols>
 </div>

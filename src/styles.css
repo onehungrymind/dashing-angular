@@ -94,8 +94,19 @@ td {
 .container {
     display: flex;
     margin: 10px;
+    flex-wrap: wrap;
 }
 
-.container .col {
+.container [class*="col"]{
     padding: 10px;
+    flex: 1;
+}
+
+md-card-header .mat-card-header-text {
+    margin-left: 0;
+    border-bottom: 1px solid #ffd740;
+}
+
+md-card-title h1 {
+    display: inline;
 }

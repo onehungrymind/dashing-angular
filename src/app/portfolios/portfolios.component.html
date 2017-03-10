@@ -1,10 +1,10 @@
 <div class="container">
-  <app-portfolio-list class="col"
+  <app-portfolio-list class="col-50"
                       [portfolios]="portfolios$ | async"
                       (select)="setCurrentPortfolio($event)"
                       (delete)="deletePortfolio($event)">
   </app-portfolio-list>
-  <app-portfolio-details class="col"
+  <app-portfolio-details class="col-50"
                          [portfolio]="currentPortfolio$ | async"
                          (save)="savePortfolio($event)">
   </app-portfolio-details>
