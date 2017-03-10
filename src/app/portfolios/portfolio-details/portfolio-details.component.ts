@@ -9,6 +9,7 @@ import { Symbol } from '../../common/models/symbol.model';
 import * as reducers from '../../common/reducers';
 import * as riskActions from '../../common/actions/risk.actions';
 import * as symbolActions from '../../common/actions/symbol.actions';
+import * as portfolioActions from '../../common/actions/portfolio.actions';
 
 @Component({
   selector: 'app-portfolio-details',
@@ -20,7 +21,7 @@ export class PortfolioDetailsComponent implements OnInit {
     this.currentPortfolio = Object.assign({}, portfolio);
   }
   @Output() save: EventEmitter<any> = new EventEmitter();
-  currentPortfolio: Portfolio = this.initPortfolio();
+  currentPortfolio: Portfolio;
 
   risks$: Observable<Array<Risk>>;
   symbols$: Observable<Array<Symbol>>;
@@ -38,22 +39,12 @@ export class PortfolioDetailsComponent implements OnInit {
   }
 
   cancel() {
-    this.currentPortfolio = this.initPortfolio();
+    this.store.dispatch(new portfolioActions.ClearAction());
   }
 
   savePortfolio(event) {
     event.preventDefault();
     this.save.emit(this.currentPortfolio);
-    this.currentPortfolio = this.initPortfolio();
+    this.cancel();
   };
-
-  initPortfolio(): Portfolio {
-    return {
-      id: null,
-      name: '',
-      symbol: null,
-      risk: null,
-      active: false
-    };
-  }
 }
