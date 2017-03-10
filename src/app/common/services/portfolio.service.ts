@@ -15,10 +15,6 @@ export class PortfolioService {
     return `${ENDPOINT_URI}${this.model}`;
   }
 
-  extractData(results) {
-    return this.data = results.json();
-  };
-
   all(): Observable<Array<Portfolio>> {
     return this.http.get(this.url)
       .map(res => res.json());
@@ -35,13 +31,5 @@ export class PortfolioService {
   delete(id) {
     return this.http.delete(`${this.url}/${id}`);
   };
-
-  // setCurrentPortfolio(portfolio) {
-  //   $rootScope.$broadcast('setPortfolio', angular.copy(portfolio));
-  // };
-  //
-  // refreshPortfolios() {
-  //   $rootScope.$broadcast('refreshPortfolios');
-  // };
 }
 

@@ -37,6 +37,12 @@ export function reducer(state = initialState, action: Action): State {
         entities: state.entities,
         selectedPortfolioId: action.payload.id
       };
+    case actions.ActionTypes.CLEAR:
+      return {
+        ids: state.ids,
+        entities: state.entities,
+        selectedPortfolioId: null
+      };
     default: {
       return state;
     }

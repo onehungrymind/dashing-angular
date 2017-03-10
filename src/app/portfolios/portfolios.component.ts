@@ -21,6 +21,10 @@ export class PortfoliosComponent implements OnInit {
 
   ngOnInit() {
     this.store.dispatch(new actions.LoadAction());
+
+    // HOW DO I SEQUENCE THIS?
+    this.portfolios$.subscribe(portfolios => console.log('PORTFOLIOS!', portfolios));
+    this.currentPortfolio$.subscribe(portfolio => console.log('CURRENT PORTFOLIO!', portfolio));
   }
 
   setCurrentPortfolio(portfolio) {
@@ -28,17 +32,11 @@ export class PortfoliosComponent implements OnInit {
   };
 
   createPortfolio(portfolio) {
-    // this.portfolioService.create(portfolio)
-    //   .subscribe(response => {
-    //     this.getPortfolios();
-    //   });
+    this.store.dispatch(new actions.CreateAction(portfolio));
   }
 
   updatePortfolio(portfolio) {
-    // this.portfolioService.update(portfolio)
-    //   .subscribe(response => {
-    //     this.getPortfolios();
-    //   });
+    this.store.dispatch(new actions.UpdateAction(portfolio));
   }
 
   savePortfolio(portfolio) {
@@ -49,10 +47,7 @@ export class PortfoliosComponent implements OnInit {
     }
   };
 
-  deletePortfolio(id) {
-    // this.portfolioService.delete(id)
-    //   .subscribe(() => {
-    //     this.getPortfolios();
-    //   });
+  deletePortfolio(portfolioId) {
+    this.store.dispatch(new actions.DeleteAction(portfolioId));
   };
 }

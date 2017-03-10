@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/combineLatest';
 
 import { Portfolio } from '../../common/models/portfolio.model';
 import { Risk } from '../../common/models/risk.model';
