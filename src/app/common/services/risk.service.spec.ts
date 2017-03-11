@@ -2,11 +2,17 @@
 
 import { inject, TestBed } from '@angular/core/testing';
 import { RiskService } from './risk.service';
+import { Http } from '@angular/http';
+
+class HttpStub {}
 
 describe('RiskService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [RiskService]
+      providers: [
+        RiskService,
+        { provide: Http, useClass: HttpStub }
+      ]
     });
   });
 

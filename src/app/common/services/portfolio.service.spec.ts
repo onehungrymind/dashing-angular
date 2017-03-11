@@ -2,11 +2,17 @@
 
 import { inject, TestBed } from '@angular/core/testing';
 import { PortfolioService } from './portfolio.service';
+import { Http } from '@angular/http';
+
+class HttpStub {}
 
 describe('PortfolioService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [PortfolioService]
+      providers: [
+        PortfolioService,
+        { provide: Http, useClass: HttpStub }
+      ]
     });
   });
 

@@ -2,11 +2,17 @@
 
 import { inject, TestBed } from '@angular/core/testing';
 import { StockService } from './stock.service';
+import { Http } from '@angular/http';
+
+class HttpStub {}
 
 describe('StockService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [StockService]
+      providers: [
+        StockService,
+        { provide: Http, useClass: HttpStub }
+      ]
     });
   });
 
