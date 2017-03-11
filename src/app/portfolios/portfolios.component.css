@@ -1,0 +1,4 @@
+:host >>> md-list-item:hover {
+  cursor: pointer;
+  background: whitesmoke;
+}
