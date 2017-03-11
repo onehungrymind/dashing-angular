@@ -23,8 +23,6 @@ import { PortfoliosComponent } from './portfolios/portfolios.component';
 import { StocksComponent } from './stocks/stocks.component';
 import { PortfolioListComponent } from './portfolios/portfolio-list/portfolio-list.component';
 import { PortfolioDetailsComponent } from './portfolios/portfolio-details/portfolio-details.component';
-import { ActivePortfoliosComponent } from './portfolios/active-portfolios/active-portfolios.component';
-import { PortfoliosByRiskComponent } from './portfolios/portfolios-by-risk/portfolios-by-risk.component';
 import { StockHistoryComponent } from './stocks/stock-history/stock-history.component';
 import { SymbolsComponent } from './stocks/symbols/symbols.component';
 import { PerformanceComponent } from './performance/performance.component';
@@ -37,8 +35,6 @@ import { PerformanceComponent } from './performance/performance.component';
     StocksComponent,
     PortfolioListComponent,
     PortfolioDetailsComponent,
-    ActivePortfoliosComponent,
-    PortfoliosByRiskComponent,
     StockHistoryComponent,
     SymbolsComponent,
     PerformanceComponent

@@ -1,28 +1,18 @@
-/* tslint:disable:no-unused-variable */
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
-
 import { PortfolioListComponent } from './portfolio-list.component';
 
 describe('PortfolioListComponent', () => {
   let component: PortfolioListComponent;
   let fixture: ComponentFixture<PortfolioListComponent>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ PortfolioListComponent ]
-    })
-    .compileComponents();
-  }));
-
+  let de: DebugElement;
   beforeEach(() => {
-    fixture = TestBed.createComponent(PortfolioListComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    fixture = TestBed.configureTestingModule({
+      declarations: [PortfolioListComponent]
+    }).createComponent(PortfolioListComponent);
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+    component = fixture.componentInstance;
+    de = fixture.debugElement;
+    fixture.detectChanges();
   });
 });
