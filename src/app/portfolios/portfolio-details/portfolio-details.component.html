@@ -2,7 +2,7 @@
   <md-card-header>
     <md-card-title>
       <h1>
-        <span *ngIf="currentPortfolio.id">Edit</span>
+        <span *ngIf="currentPortfolio.id">Editing {{originalName}}</span>
         <span *ngIf="!currentPortfolio.id">Create</span>
       </h1>
     </md-card-title>
@@ -10,7 +10,7 @@
   <form (submit)="savePortfolio($event)">
     <md-card-content class="por">
       <md-input-container class="full-width">
-        <input mdInput placeholder="Name" [(ngModel)]="currentPortfolio.name" type="text" id="name" name="name">
+        <input mdInput placeholder="Name" [(ngModel)]="currentPortfolio.name" type="text" name="name">
       </md-input-container>
       <div class="select-wrapper">
         <md-select placeholder="Risk level" [(ngModel)]="currentPortfolio.risk" name="risk" class="full-width" >

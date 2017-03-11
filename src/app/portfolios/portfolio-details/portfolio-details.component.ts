@@ -19,9 +19,13 @@ import * as portfolioActions from '../../common/actions/portfolio.actions';
 export class PortfolioDetailsComponent implements OnInit {
   @Input() set portfolio(portfolio) {
     this.currentPortfolio = Object.assign({}, portfolio);
+    if (portfolio) {
+      this.originalName = portfolio.name;
+    }
   }
   @Output() save: EventEmitter<any> = new EventEmitter();
   currentPortfolio: Portfolio;
+  originalName: string;
 
   risks$: Observable<Array<Risk>>;
   symbols$: Observable<Array<Symbol>>;
