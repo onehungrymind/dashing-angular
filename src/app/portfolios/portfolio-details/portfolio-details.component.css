@@ -1,6 +1,13 @@
 .select-wrapper {
   margin: 1em 0;
 }
+.select-wrapper >md-select {
+  margin-bottom: 22px;
+}
+
 md-card-actions {
   margin-bottom: 0;
+}
+.full-width {
+  width: 100%;
 }

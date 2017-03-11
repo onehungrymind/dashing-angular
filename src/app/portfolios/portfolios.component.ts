@@ -21,10 +21,6 @@ export class PortfoliosComponent implements OnInit {
 
   ngOnInit() {
     this.store.dispatch(new actions.LoadAction());
-
-    // HOW DO I SEQUENCE THIS?
-    this.portfolios$.subscribe(portfolios => console.log('PORTFOLIOS!', portfolios));
-    this.currentPortfolio$.subscribe(portfolio => console.log('CURRENT PORTFOLIO!', portfolio));
   }
 
   setCurrentPortfolio(portfolio) {
