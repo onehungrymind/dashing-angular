@@ -17,7 +17,7 @@ export function reducer(state = initialState, action: Action) {
   switch (action.type) {
     case actions.ActionTypes.LOAD_SUCCESS:
       const risks = action.payload;
-      const ids = risks.map(portfolio => portfolio.id);
+      const ids = risks.map(risk => risk.id);
       const entities = risks.reduce((entities: { [id: string]: Risk }, risk: Risk) => {
         return Object.assign(entities, {
           [risk.id]: risk
