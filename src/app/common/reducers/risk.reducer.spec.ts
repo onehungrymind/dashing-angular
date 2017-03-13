@@ -1,9 +1,9 @@
 import { initialState, reducer } from './risk.reducer';
-import { type } from "../util";
+import { type } from '../util';
 
 import * as actions from '../actions/risk.actions';
 
-fdescribe('Risk reducer', () => {
+describe('Risk reducer', () => {
   it('should return state by default', () => {
     const result = reducer(initialState, {type: type('[Risk] Default')});
     expect(result).toBe(initialState);

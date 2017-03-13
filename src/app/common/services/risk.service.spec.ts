@@ -1,14 +1,12 @@
-/* tslint:disable:no-unused-variable */
-
 import { inject, TestBed } from '@angular/core/testing';
 import { RiskService } from './risk.service';
-import { Http, HttpModule } from "@angular/http";
-import { Observable } from "rxjs";
+import { Http, HttpModule } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
 
 describe('RiskService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [ HttpModule ],
+      imports: [HttpModule],
       providers: [RiskService]
     });
   });

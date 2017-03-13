@@ -1,11 +1,9 @@
-/* tslint:disable:no-unused-variable */
-
 import { inject, TestBed } from '@angular/core/testing';
 import { PortfolioService } from './portfolio.service';
-import { Http, HttpModule } from "@angular/http";
-import { Observable } from "rxjs";
+import { Http, HttpModule } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
 
-let mockPortfolio = {
+const mockPortfolio = {
   name: 'string',
   symbol: 'string',
   risk: 1,
@@ -60,7 +58,7 @@ describe('PortfolioService', () => {
 
   it('#delete should delete an existing portfolio', inject([PortfolioService, Http], (service: PortfolioService, http: Http) => {
     const spy = spyOn(http, 'delete');
-    let mockID = 'string';
+    const mockID = 'string';
     service.delete(mockID);
     expect(spy).toHaveBeenCalledWith(`${service.url}/${mockID}`);
   }));

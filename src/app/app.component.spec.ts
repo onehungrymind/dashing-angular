@@ -1,11 +1,10 @@
-/* tslint:disable:no-unused-variable */
-
 import 'hammerjs';
 
-import { TestBed, async } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { DebugElement } from '@angular/core';
 import { AppComponent } from './app.component';
-import { MaterialModule } from "@angular/material";
-import { Component, Directive, Input } from "@angular/core";
+import { MaterialModule } from '@angular/material';
+import { Component, Directive, Input } from '@angular/core';
 
 @Directive({
   selector: '[routerLink]'
@@ -21,18 +20,22 @@ class RouterLinkDirectiveStub {
 class RouterOutletComponentStub {}
 
 describe('AppComponent', () => {
+  let component: AppComponent;
+  let fixture: ComponentFixture<AppComponent>;
+  let de: DebugElement;
+
   beforeEach(() => {
-    TestBed.configureTestingModule({
+    fixture = TestBed.configureTestingModule({
       imports: [ MaterialModule ],
       declarations: [ AppComponent, RouterOutletComponentStub, RouterLinkDirectiveStub ],
-    });
-    TestBed.compileComponents();
+    }).createComponent(AppComponent);
+
+    component = fixture.componentInstance;
+    de = fixture.debugElement;
+    fixture.detectChanges();
   });
 
-  it('should create the app', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    fixture.detectChanges();
-    expect(app).toBeTruthy();
-  }));
+  it('should create the app', () => {
+    expect(component).toBeTruthy();
+  });
 });

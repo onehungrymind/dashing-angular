@@ -7,7 +7,6 @@ import { Portfolio } from '../models/portfolio.model';
 @Injectable()
 export class PortfolioService {
   model = '/portfolios';
-  data: Array<any>;
 
   constructor(private http: Http) {}
 

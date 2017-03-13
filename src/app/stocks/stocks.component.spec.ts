@@ -1,12 +1,9 @@
-/* tslint:disable:no-unused-variable */
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { DebugElement, Component, Input, Output, EventEmitter } from '@angular/core';
-
 import { StocksComponent } from './stocks.component';
 
-import { StoreModule } from "@ngrx/store";
-import { reducer } from "../common/reducers";
+import { StoreModule } from '@ngrx/store';
+import { reducer } from '../common/reducers';
 
 @Component({
   selector: 'app-performance',
@@ -37,22 +34,16 @@ class StockHistoryComponentStub {
 describe('StocksComponent', () => {
   let component: StocksComponent;
   let fixture: ComponentFixture<StocksComponent>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      imports: [ StoreModule.provideStore(reducer) ],
-      declarations: [ StocksComponent, PerformanceComponentStub, SymbolsComponentStub, StockHistoryComponentStub ]
-    })
-    .compileComponents();
-  }));
+  let de: DebugElement;
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(StocksComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    fixture = TestBed.configureTestingModule({
+      imports: [ StoreModule.provideStore(reducer) ],
+      declarations: [ StocksComponent, PerformanceComponentStub, SymbolsComponentStub, StockHistoryComponentStub ]
+    }).createComponent(StocksComponent);
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+    component = fixture.componentInstance;
+    de = fixture.debugElement;
+    fixture.detectChanges();
   });
 });

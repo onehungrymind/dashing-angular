@@ -1,11 +1,8 @@
-/* tslint:disable:no-unused-variable */
-
 import { inject, TestBed } from '@angular/core/testing';
 import { StockService } from './stock.service';
-
 import { Http, HttpModule } from '@angular/http';
-import { Observable } from "rxjs";
-import { ENDPOINT_URI } from "../constants";
+import { Observable } from 'rxjs/Observable';
+import { ENDPOINT_URI } from '../constants';
 
 describe('StockService', () => {
   beforeEach(() => {

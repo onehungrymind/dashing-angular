@@ -1,8 +1,8 @@
 import { initialState, reducer } from './portfolio.reducer';
-import { type } from "../util";
+import { type } from '../util';
 import * as actions from '../actions/portfolio.actions';
 
-fdescribe('Portfolio reducer', () => {
+describe('Portfolio reducer', () => {
   it('should return state by default', () => {
     const result = reducer(initialState, {type: type('[Portfolio] Default')});
     expect(result).toBe(initialState);

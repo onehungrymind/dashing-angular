@@ -2,21 +2,21 @@
   <md-card-header>
     <md-card-title>
       <h1>
-        <span *ngIf="currentPortfolio.id">Edit</span>
+        <span *ngIf="currentPortfolio.id">Editing {{originalName}}</span>
         <span *ngIf="!currentPortfolio.id">Create</span>
       </h1>
     </md-card-title>
   </md-card-header>
   <form (submit)="savePortfolio($event)">
-    <md-card-content>
-      <md-input-container class="example-full-width">
-        <input mdInput placeholder="Name" [(ngModel)]="currentPortfolio.name" type="text" id="name" name="name">
+    <md-card-content class="por">
+      <md-input-container class="full-width">
+        <input mdInput placeholder="Name" [(ngModel)]="currentPortfolio.name" type="text" name="name">
       </md-input-container>
       <div class="select-wrapper">
-        <md-select placeholder="Risk level" [(ngModel)]="currentPortfolio.risk" name="risk">
+        <md-select placeholder="Risk level" [(ngModel)]="currentPortfolio.risk" name="risk" class="full-width" >
           <md-option *ngFor="let risk of risks$ | async" [value]="risk.id">{{risk.description}}</md-option>
         </md-select>
-        <md-select placeholder="Stock symbol" [(ngModel)]="currentPortfolio.symbol" name="symbol">
+        <md-select placeholder="Stock symbol" [(ngModel)]="currentPortfolio.symbol" name="symbol" class="full-width">
           <md-option *ngFor="let symbol of symbols$ | async" [value]="symbol.code">{{symbol.entity + ' (' + symbol.code + ')'}}</md-option>
         </md-select>
       </div>

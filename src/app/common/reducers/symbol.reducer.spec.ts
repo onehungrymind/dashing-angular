@@ -1,8 +1,8 @@
 import { initialState, reducer } from './symbol.reducer';
-import { type } from "../util";
+import { type } from '../util';
 import * as actions from '../actions/symbol.actions';
 
-fdescribe('Symbol reducer', () => {
+describe('Symbol reducer', () => {
   it('should return state by default', () => {
     const result = reducer(initialState, {type: type('[Symbol] Default')});
     expect(result).toBe(initialState);

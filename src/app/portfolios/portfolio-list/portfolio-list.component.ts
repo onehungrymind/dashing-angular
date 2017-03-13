@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Portfolio } from '../../common/models/portfolio.model';
 
 @Component({
@@ -6,20 +6,9 @@ import { Portfolio } from '../../common/models/portfolio.model';
   templateUrl: './portfolio-list.component.html',
   styleUrls: ['./portfolio-list.component.css']
 })
-export class PortfolioListComponent implements OnInit{
+export class PortfolioListComponent {
   @Input() portfolios: Array<Portfolio>;
-  @Input() disableActions: Boolean = false;
+  @Input() readOnly: Boolean = false;
   @Output() select: EventEmitter<any> = new EventEmitter();
   @Output() delete: EventEmitter<any> = new EventEmitter();
-
-  constructor() {}
-
-  ngOnInit() {}
-
-  deletePortfolio(id, event) {
-    event.stopPropagation();
-    event.preventDefault();
-    this.delete.emit(id);
-  }
 }
-

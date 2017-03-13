@@ -1,10 +1,7 @@
-/* tslint:disable:no-unused-variable */
-
 import { inject, TestBed } from '@angular/core/testing';
 import { SymbolService } from './symbol.service';
-
 import { HttpModule, Http } from '@angular/http';
-import { Observable } from "rxjs";
+import { Observable } from 'rxjs/Observable';
 
 describe('SymbolService', () => {
   beforeEach(() => {

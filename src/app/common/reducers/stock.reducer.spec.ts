@@ -1,8 +1,8 @@
 import { initialState, reducer } from './stock.reducer';
-import { type } from "../util";
+import { type } from '../util';
 import * as actions from '../actions/stock.actions';
 
-fdescribe('Stock reducer', () => {
+describe('Stock reducer', () => {
   it('should return state by default', () => {
     const result = reducer(initialState, {type: type('[Stock] Default')});
     expect(result).toBe(initialState);
