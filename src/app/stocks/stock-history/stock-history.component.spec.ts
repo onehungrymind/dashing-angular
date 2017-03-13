@@ -4,6 +4,7 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { StockHistoryComponent } from './stock-history.component';
+import { MaterialModule } from "@angular/material";
 
 describe('StockHistoryComponent', () => {
   let component: StockHistoryComponent;
@@ -11,6 +12,7 @@ describe('StockHistoryComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [ MaterialModule ],
       declarations: [ StockHistoryComponent ]
     })
     .compileComponents();

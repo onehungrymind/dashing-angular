@@ -12,7 +12,7 @@
         class="nav-link"
         *ngFor="let link of links"
         [routerLink]="link.path"
-        routerLinkActive="active" #rla="routerLinkActive">
+        routerLinkActive="active">
         <md-icon>{{link.icon}}</md-icon> &nbsp;
         {{link.label}}
       </a>

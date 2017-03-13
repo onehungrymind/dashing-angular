@@ -8,7 +8,7 @@
 		<md-list>
 			<md-list-item *ngFor="let portfolio of portfolios" (click)="select.emit(portfolio)">
 				<h3 md-line>{{portfolio.name}} | <span class="symbol">{{portfolio.symbol}}</span></h3>
-				<button md-icon-button (click)="deletePortfolio(portfolio.id, $event)" *ngIf="!isHome">
+				<button md-icon-button (click)="deletePortfolio(portfolio.id, $event)" *ngIf="!disableActions">
 					<md-icon>close</md-icon>
 				</button>
 				<p md-line>

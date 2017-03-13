@@ -3,6 +3,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
+import { MaterialModule } from '@angular/material';
+
 import { PortfolioListComponent } from './portfolio-list.component';
 
 describe('PortfolioListComponent', () => {
@@ -11,6 +13,7 @@ describe('PortfolioListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [ MaterialModule ],
       declarations: [ PortfolioListComponent ]
     })
     .compileComponents();
