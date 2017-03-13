@@ -1,8 +1,3 @@
-<!-- TODO Implement
-<div class="container">
-  <app-performance class="col"></app-performance>
-</div>
--->
 <div class="container">
   <app-stock-history
     [history]="stockHistory$ | async" class="col-50">
@@ -14,11 +9,12 @@
       (select)="setCurrentSymbol($event)">
     </app-symbols>
 
-    <!-- TODO Fix this -->
+    <!-- TODO Fix this
     <div style="height: 20px;"></div>
 
     <app-performance
       [history]="stockHistory$ | async">
     </app-performance>
+    -->
   </div>
 </div>
