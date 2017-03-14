@@ -45,7 +45,7 @@ export class DeleteAction implements Action {
 export class SelectAction implements Action {
   type = ActionTypes.SELECT;
 
-  constructor(public payload: string) { }
+  constructor(public payload: Portfolio) { }
 }
 
 export class ClearAction implements Action {
