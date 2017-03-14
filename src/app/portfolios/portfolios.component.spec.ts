@@ -28,7 +28,7 @@ class PortfolioDetailsComponentStub {
   @Output() save = new EventEmitter();
 }
 
-fdescribe('PortfoliosComponent', () => {
+describe('PortfoliosComponent', () => {
   let component: PortfoliosComponent;
   let fixture: ComponentFixture<PortfoliosComponent>;
   let de: DebugElement;
