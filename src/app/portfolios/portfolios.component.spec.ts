@@ -44,7 +44,7 @@ describe('PortfoliosComponent', () => {
 
     component = fixture.componentInstance;
     de = fixture.debugElement;
-    store = de.injector.get(Store)
+    store = de.injector.get(Store);
 
     spyOn(store, 'dispatch');
   });
