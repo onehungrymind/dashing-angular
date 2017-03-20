@@ -1,31 +1,35 @@
 # Angular Dashing
 
-This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.28.3.
+![image](https://cloud.githubusercontent.com/assets/1544557/24111634/5a96dd00-0d54-11e7-8abc-19c9c8d74538.png)
 
-## Development server
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+A reactive stock manager app built with [Angular 2](https://angular.io/) and [@ngrx](https://github.com/ngrx), and styled with [Angular Material](https://material.angular.io/). It showcases the following concepts:
+* Component-driven architecture
+* Routing
+* Elegant state management with [@ngrx/store](https://github.com/ngrx/store)
+* Effective handling of side effects via [@ngrx/effects](https://github.com/ngrx/effects)
+* In-depth state inspection with [@ngrx/store-devtools](https://github.com/ngrx/store-devtools)
+* State selection with reselect
+* Strategies for unit testing Angular 2 components and services, as well as @ngrx reducers and effects
+ 
+## Prerequisites
+- Git
+- Node.js v6.9+ and NPM v3.x – we recommend using NVM (Linux/Mac) or NVM-Windows (Windows)
 
-## Code scaffolding
+## Getting started
+Run the following:
+```bash
+git clone https://github.com/onehungrymind/dashing-angular.git
+cd dashing-angular
+npm i
+npm start
+```
+Navigate to [localhost:4200](http://localhost:4200) in your favorite browser.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
+> Note: the above terminal commands are for Mac. Remember to substitute the appropriate commands for your OS.
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+## Using devtools
+The app is already wired to work with the Redux Devtools browser extension (available for Chrome and Firefox). Go [here](http://extension.remotedev.io/#installation) to get the browser extension installed. Once it is installed, navigate to the app in your browser, open up the browser devtools, and there will be a new tab for the Redux Devtools. Click that and you are squared away!
 
 ## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Deploying to GitHub Pages
-
-Run `ng github-pages:deploy` to deploy to GitHub Pages.
-
-## Further help
-
-To get more help on the `angular-cli` use `ng help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Run `npm test` or `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
