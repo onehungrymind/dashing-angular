@@ -12,8 +12,8 @@ A reactive stock manager app built with [Angular 2](https://angular.io/) and [@n
 * Strategies for unit testing Angular 2 components and services, as well as @ngrx reducers and effects
  
 ## Prerequisites
-- Git
-- Node.js v6.9+ and NPM v3.x – we recommend using NVM (Linux/Mac) or NVM-Windows (Windows)
+- [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+- Node.js v6.9+ and NPM v3.x – we recommend using [NVM (Linux/Mac)](https://github.com/creationix/nvm) or [NVM-Windows (Windows)](https://github.com/coreybutler/nvm-windows)
 
 ## Getting started
 Run the following:
