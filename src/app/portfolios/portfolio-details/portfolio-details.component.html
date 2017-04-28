@@ -2,8 +2,8 @@
   <md-card-header>
     <md-card-title>
       <h1>
-        <span *ngIf="currentPortfolio.id">Editing {{originalName}}</span>
-        <span *ngIf="!currentPortfolio.id">Create</span>
+        <span *ngIf="currentPortfolio.id; else prompt">Editing {{originalName}}</span>
+        <ng-template #prompt>Create</ng-template>
       </h1>
     </md-card-title>
   </md-card-header>
