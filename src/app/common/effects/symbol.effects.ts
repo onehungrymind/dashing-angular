@@ -11,14 +11,14 @@ import { SymbolService } from '../services/symbol.service';
 
 @Injectable()
 export class SymbolEffects {
-  constructor(
-    private symbolService: SymbolService,
-    private actions$: Actions
-  ) { }
-
   @Effect() load$ = this.actions$
     .ofType(symbol.ActionTypes.LOAD)
     .switchMap(() => this.symbolService.all())
     .map(symbols => new symbol.LoadActionSuccess(symbols))
   ;
+
+  constructor(
+    private symbolService: SymbolService,
+    private actions$: Actions
+  ) { }
 }

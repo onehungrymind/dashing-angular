@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
 import { StockHistoryComponent } from './stock-history.component';
-import { MaterialModule } from "@angular/material";
+import { MaterialModule } from '@angular/material';
 
 describe('StockHistoryComponent', () => {
   let component: StockHistoryComponent;

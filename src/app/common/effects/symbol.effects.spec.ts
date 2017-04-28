@@ -1,8 +1,8 @@
 import { EffectsTestingModule, EffectsRunner } from '@ngrx/effects/testing';
-import { TestBed } from "@angular/core/testing";
+import { TestBed } from '@angular/core/testing';
 import { SymbolEffects } from './symbol.effects';
-import { Observable } from "rxjs";
-import { SymbolService } from "../services/symbol.service";
+import { Observable } from 'rxjs/Observable';
+import { SymbolService } from '../services/symbol.service';
 import * as actions from '../actions/symbol.actions';
 
 describe('Symbol Effects', () => {

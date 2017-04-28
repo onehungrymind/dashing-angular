@@ -1,8 +1,8 @@
 import { EffectsTestingModule, EffectsRunner } from '@ngrx/effects/testing';
-import { TestBed } from "@angular/core/testing";
+import { TestBed } from '@angular/core/testing';
 import { PortfolioEffects } from './portfolio.effects';
-import { Observable } from "rxjs";
-import { PortfolioService } from "../services/portfolio.service";
+import { Observable } from 'rxjs/Observable';
+import { PortfolioService } from '../services/portfolio.service';
 import * as actions from '../actions/portfolio.actions';
 
 describe('portfolio Effects', () => {

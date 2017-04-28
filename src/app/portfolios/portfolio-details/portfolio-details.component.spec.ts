@@ -4,7 +4,7 @@ import { PortfolioDetailsComponent } from './portfolio-details.component';
 import { FormsModule } from '@angular/forms';
 import { MaterialModule } from '@angular/material';
 import { StoreModule, Store } from '@ngrx/store';
-import { Portfolio } from "../../common/models/portfolio.model";
+import { Portfolio } from '../../common/models/portfolio.model';
 
 import { reducer } from '../../common/reducers';
 import * as reducers from '../../common/reducers';

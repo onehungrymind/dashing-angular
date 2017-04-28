@@ -11,14 +11,14 @@ import { RiskService } from '../services/risk.service';
 
 @Injectable()
 export class RiskEffects {
-  constructor(
-    private riskService: RiskService,
-    private actions$: Actions
-  ) { }
-
   @Effect() load$ = this.actions$
     .ofType(risk.ActionTypes.LOAD)
     .switchMap(() => this.riskService.all())
     .map(risks => new risk.LoadActionSuccess(risks))
   ;
+
+  constructor(
+    private riskService: RiskService,
+    private actions$: Actions
+  ) { }
 }

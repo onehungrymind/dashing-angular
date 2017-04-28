@@ -1,8 +1,8 @@
 import { EffectsTestingModule, EffectsRunner } from '@ngrx/effects/testing';
-import { TestBed } from "@angular/core/testing";
+import { TestBed } from '@angular/core/testing';
 import { StockEffects } from './stock.effects';
-import { Observable } from "rxjs";
-import { StockService } from "../services/stock.service";
+import { Observable } from 'rxjs/Observable';
+import { StockService } from '../services/stock.service';
 import * as actions from '../actions/stock.actions';
 
 describe('Stock Effects', () => {

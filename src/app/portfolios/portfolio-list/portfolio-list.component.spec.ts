@@ -2,8 +2,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
 import { MaterialModule } from '@angular/material';
 import { PortfolioListComponent } from './portfolio-list.component';
-import { By } from "@angular/platform-browser";
-import { Portfolio } from "../../common/models/portfolio.model";
+import { By } from '@angular/platform-browser';
+import { Portfolio } from '../../common/models/portfolio.model';
 
 describe('PortfolioListComponent', () => {
   let component: PortfolioListComponent;

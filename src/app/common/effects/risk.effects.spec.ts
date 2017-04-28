@@ -1,8 +1,8 @@
 import { EffectsTestingModule, EffectsRunner } from '@ngrx/effects/testing';
-import { TestBed } from "@angular/core/testing";
+import { TestBed } from '@angular/core/testing';
 import { RiskEffects } from './risk.effects';
-import { Observable } from "rxjs";
-import { RiskService } from "../services/risk.service";
+import { Observable } from 'rxjs/Observable';
+import { RiskService } from '../services/risk.service';
 import * as actions from '../actions/risk.actions';
 
 describe('Risk Effects', () => {

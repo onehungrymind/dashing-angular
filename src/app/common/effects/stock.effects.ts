@@ -11,11 +11,6 @@ import { StockService } from '../services/stock.service';
 
 @Injectable()
 export class StockEffects {
-  constructor(
-    private stockService: StockService,
-    private actions$: Actions
-  ) { }
-
   @Effect() load$ = this.actions$
     .ofType(stock.ActionTypes.LOAD)
     .switchMap(() => this.stockService.all())
@@ -28,4 +23,9 @@ export class StockEffects {
     .switchMap(symbol => this.stockService.getStockHistory(symbol))
     .map(stocks => new stock.LoadHistorySuccessAction(stocks))
   ;
+
+  constructor(
+    private stockService: StockService,
+    private actions$: Actions
+  ) { }
 }
