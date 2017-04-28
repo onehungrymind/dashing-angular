@@ -11,6 +11,7 @@ import * as reducers from '../../common/reducers';
 import * as riskActions from '../../common/actions/risk.actions';
 import * as symbolActions from '../../common/actions/symbol.actions';
 import * as portfolioActions from '../../common/actions/portfolio.actions';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('PortfolioDetailsComponent', () => {
   let component: PortfolioDetailsComponent;
@@ -21,7 +22,7 @@ describe('PortfolioDetailsComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.configureTestingModule({
-      imports: [ MaterialModule, FormsModule, StoreModule.provideStore(reducer) ],
+      imports: [ MaterialModule, BrowserAnimationsModule, FormsModule, StoreModule.provideStore(reducer) ],
       declarations: [ PortfolioDetailsComponent ]
     }).createComponent(PortfolioDetailsComponent);
 

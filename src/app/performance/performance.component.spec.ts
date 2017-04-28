@@ -1,8 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { DebugElement, Directive, Input, Output } from '@angular/core';
+import { DebugElement, Directive, EventEmitter, Input, Output } from '@angular/core';
 import { PerformanceComponent } from './performance.component';
 import { MaterialModule } from '@angular/material';
-import { EventEmitter } from '@angular/common/src/facade/async';
 
 @Directive({
   selector: '[baseChart]'
