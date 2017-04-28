@@ -2,14 +2,14 @@
 
 ![image](https://cloud.githubusercontent.com/assets/1544557/24111634/5a96dd00-0d54-11e7-8abc-19c9c8d74538.png)
 
-A reactive stock manager app built with [Angular 2](https://angular.io/) and [@ngrx](https://github.com/ngrx), and styled with [Angular Material](https://material.angular.io/). It showcases the following concepts:
+A reactive stock manager app built with [Angular](https://angular.io/) and [@ngrx](https://github.com/ngrx), and styled with [Angular Material](https://material.angular.io/). It showcases the following concepts:
 * Component-driven architecture
 * Routing
 * Elegant state management with [@ngrx/store](https://github.com/ngrx/store)
 * Effective handling of side effects via [@ngrx/effects](https://github.com/ngrx/effects)
 * In-depth state inspection with [@ngrx/store-devtools](https://github.com/ngrx/store-devtools)
 * State selection with reselect
-* Strategies for unit testing Angular 2 components and services, as well as @ngrx reducers and effects
+* Strategies for unit testing Angular components and services, as well as @ngrx reducers and effects
  
 ## Prerequisites
 - [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
