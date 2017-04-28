@@ -1,10 +1,10 @@
-import { Dashing2Page } from './app.po';
+import { DashingAngularPage } from './app.po';
 
-describe('dashing2 App', function() {
-  let page: Dashing2Page;
+describe('dashing-angular App', () => {
+  let page: DashingAngularPage;
 
   beforeEach(() => {
-    page = new Dashing2Page();
+    page = new DashingAngularPage();
   });
 
   it('should display message saying app works', () => {

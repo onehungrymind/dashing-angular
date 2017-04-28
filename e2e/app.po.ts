@@ -1,6 +1,6 @@
 import { browser, element, by } from 'protractor';
 
-export class Dashing2Page {
+export class DashingAngularPage {
   navigateTo() {
     return browser.get('/');
   }
