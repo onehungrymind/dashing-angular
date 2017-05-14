@@ -1,3 +1,49 @@
-<p>
-  clients works!
-</p>
+
+<div class="container">
+  <!-- LIST -->
+  <div class="col-50">
+    <md-card>
+      <md-card-header>
+        <md-card-title>
+          <h1>CLIENTS</h1>
+        </md-card-title>
+      </md-card-header>
+      <md-card-content>
+        <md-list>
+          <md-list-item
+            *ngFor="let client of clients"
+            (click)="selectClient(client)">
+            <h3 md-line>{{client.name}}</h3>
+            <button md-icon-button>
+              <md-icon>close</md-icon>
+            </button>
+            <p md-line>
+              {{client.description}}
+            </p>
+          </md-list-item>
+        </md-list>
+      </md-card-content>
+    </md-card>
+  </div>
+  <!-- DETAILS -->
+  <div class="col-50">
+    <md-card>
+      <md-card-header>
+        <div *ngIf="selectedClient">
+          <img md-card-avatar [src]="selectedClient.img" [alt]="selectedClient.name"/>
+        </div>
+        <md-card-title>
+          <h1 *ngIf="selectedClient; else prompt">{{selectedClient.name}}</h1>
+          <ng-template #prompt><h1>Select a Client</h1></ng-template>
+        </md-card-title>
+      </md-card-header>
+      <md-card-content>
+        <pre>{{selectedClient | json}}</pre>
+      </md-card-content>
+      <md-card-actions>
+        <button type="button" md-button>Save</button>
+        <button type="button" md-button (click)="selectClient(null)">Cancel</button>
+      </md-card-actions>
+    </md-card>
+  </div>
+</div>
