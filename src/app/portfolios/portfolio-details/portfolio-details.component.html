@@ -1,30 +1,30 @@
 <md-card>
-  <md-card-header>
-    <md-card-title>
-      <h1>
-        <span *ngIf="currentPortfolio.id; else prompt">Editing {{originalName}}</span>
-        <ng-template #prompt>Create</ng-template>
-      </h1>
-    </md-card-title>
-  </md-card-header>
-  <form (submit)="savePortfolio($event)">
-    <md-card-content>
-      <md-input-container class="full-width">
-        <input mdInput placeholder="Name" [(ngModel)]="currentPortfolio.name" type="text" name="name">
-      </md-input-container>
-      <div class="select-wrapper">
-        <md-select placeholder="Risk level" [(ngModel)]="currentPortfolio.risk" name="risk" class="full-width" >
-          <md-option *ngFor="let risk of risks$ | async" [value]="risk.id">{{risk.description}}</md-option>
-        </md-select>
-        <md-select placeholder="Stock symbol" [(ngModel)]="currentPortfolio.symbol" name="symbol" class="full-width">
-          <md-option *ngFor="let symbol of symbols$ | async" [value]="symbol.code">{{symbol.entity + ' (' + symbol.code + ')'}}</md-option>
-        </md-select>
-      </div>
-      <md-checkbox name="active" [(ngModel)]="currentPortfolio.active">Active</md-checkbox>
-    </md-card-content>
-    <md-card-actions>
-      <button type="submit" md-button>Save</button>
-      <button type="button" md-button (click)="cancel()">Cancel</button>
-    </md-card-actions>
-  </form>
+	<md-card-header>
+		<md-card-title>
+			<h1>
+				<span *ngIf="currentPortfolio.id; else prompt">Editing {{originalName}}</span>
+				<ng-template #prompt>Create</ng-template>
+			</h1>
+		</md-card-title>
+	</md-card-header>
+	<md-card-content>
+		<form #formRef="ngForm">
+			<md-input-container class="full-width">
+				<input mdInput placeholder="Name" required [(ngModel)]="currentPortfolio.name" type="text" name="name">
+			</md-input-container>
+			<div class="select-wrapper">
+				<md-select placeholder="Risk level" [(ngModel)]="currentPortfolio.risk" name="risk" class="full-width">
+					<md-option *ngFor="let risk of risks$ | async" [value]="risk.id">{{risk.description}}</md-option>
+				</md-select>
+				<md-select placeholder="Stock symbol" [(ngModel)]="currentPortfolio.symbol" name="symbol" class="full-width">
+					<md-option *ngFor="let symbol of symbols$ | async" [value]="symbol.code">{{symbol.entity + ' (' + symbol.code + ')'}}</md-option>
+				</md-select>
+			</div>
+			<md-checkbox name="active" [(ngModel)]="currentPortfolio.active">Active</md-checkbox>
+		</form>
+	</md-card-content>
+	<md-card-actions>
+		<button md-button (click)="savePortfolio(currentPortfolio)" [disabled]="!formRef.valid">Save</button>
+		<button md-button (click)="cancel()">Cancel</button>
+	</md-card-actions>
 </md-card>

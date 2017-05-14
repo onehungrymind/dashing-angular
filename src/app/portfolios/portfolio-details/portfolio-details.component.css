@@ -5,9 +5,15 @@
   margin-bottom: 22px;
 }
 
+md-card-content {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
 md-card-actions {
   margin-bottom: 0;
 }
+
 .full-width {
   width: 100%;
 }

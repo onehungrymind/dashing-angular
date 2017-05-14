@@ -12,9 +12,9 @@
         <md-list>
           <md-list-item
             *ngFor="let client of clients"
-            (click)="selectClient(client)">
+            (click)="setCurrentClient(client)">
             <h3 md-line>{{client.name}}</h3>
-            <button md-icon-button>
+            <button md-icon-button (click)="deleteClient(client.id)">
               <md-icon>close</md-icon>
             </button>
             <p md-line>
@@ -29,20 +29,29 @@
   <div class="col-50">
     <md-card>
       <md-card-header>
-        <div *ngIf="selectedClient">
-          <img md-card-avatar [src]="selectedClient.img" [alt]="selectedClient.name"/>
+        <div *ngIf="currentClient.id">
+          <img md-card-avatar [src]="currentClient.img" [alt]="currentClient.name"/>
         </div>
         <md-card-title>
-          <h1 *ngIf="selectedClient; else prompt">{{selectedClient.name}}</h1>
-          <ng-template #prompt><h1>Select a Client</h1></ng-template>
+          <h1 *ngIf="currentClient.id; else prompt">Editing {{currentClient.name}}</h1>
+          <ng-template #prompt><h1>Create</h1></ng-template>
         </md-card-title>
       </md-card-header>
       <md-card-content>
-        <pre>{{selectedClient | json}}</pre>
+        <form #formRef="ngForm">
+          <md-input-container class="full-width">
+            <input mdInput placeholder="Name" required
+              [(ngModel)]="currentClient.name" type="text" name="name">
+          </md-input-container>
+          <md-input-container class="full-width">
+            <input mdInput placeholder="Description"
+              [(ngModel)]="currentClient.description" type="text" name="description">
+          </md-input-container>
+        </form>
       </md-card-content>
       <md-card-actions>
-        <button type="button" md-button>Save</button>
-        <button type="button" md-button (click)="selectClient(null)">Cancel</button>
+        <button md-button (click)="saveClient(currentClient)" [disabled]="!formRef.valid">Save</button>
+        <button md-button (click)="cancel()">Cancel</button>
       </md-card-actions>
     </md-card>
   </div>

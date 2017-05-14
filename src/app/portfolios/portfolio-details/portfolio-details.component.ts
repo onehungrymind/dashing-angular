@@ -46,9 +46,8 @@ export class PortfolioDetailsComponent implements OnInit {
     this.store.dispatch(new portfolioActions.ClearAction());
   }
 
-  savePortfolio(event) {
-    event.preventDefault();
-    this.save.emit(this.currentPortfolio);
+  savePortfolio(portfolio) {
+    this.save.emit(portfolio);
     this.cancel();
   };
 }
