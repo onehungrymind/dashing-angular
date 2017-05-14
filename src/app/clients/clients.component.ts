@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ClientsService } from '../common/services/clients.service';
 
 @Component({
   selector: 'app-clients',
@@ -7,29 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientsComponent implements OnInit {
   selectedClient;
-  clients = [
-    {
-      'id': 1,
-      'img': 'assets/user.jpg',
-      'name': 'John Doe',
-      'description': 'Going places'
-    },
-    {
-      'id': 2,
-      'img': 'assets/user.jpg',
-      'name': 'Jane Smith',
-      'description': 'Risk averse'
-    },
-    {
-      'id': 3,
-      'img': 'assets/user.jpg',
-      'name': 'Matt Jones',
-      'description': 'High roller',
-    }];
+  clients;
 
-  constructor() { }
+  constructor(private clientsService: ClientsService) { }
 
   ngOnInit() {
+    this.clients = this.clientsService.clients;
   }
 
   selectClient(client) {

@@ -16,7 +16,7 @@ import { PortfolioEffects, RiskEffects, StockEffects, SymbolEffects } from './co
 
 import { reducer } from './common/reducers';
 
-import { PortfolioService, RiskService, StockService, SymbolService } from './common/services';
+import { PortfolioService, RiskService, StockService, SymbolService, ClientsService } from './common/services';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -64,7 +64,8 @@ import { ClientsComponent } from './clients/clients.component';
     PortfolioService,
     StockService,
     RiskService,
-    SymbolService
+    SymbolService,
+    ClientsService
   ],
   bootstrap: [AppComponent]
 })
