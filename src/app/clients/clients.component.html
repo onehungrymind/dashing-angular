@@ -2,6 +2,8 @@
 <div class="container">
   <!-- LIST -->
   <div class="col-50">
+    <app-client-ui></app-client-ui>
+
     <app-clients-list
       [clients]="clients"
       (selected)="setCurrentClient($event)"

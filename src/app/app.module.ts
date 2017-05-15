@@ -32,6 +32,7 @@ import { ChartsModule } from 'ng2-charts';
 import { ClientsComponent } from './clients/clients.component';
 import { ClientsListComponent } from './clients/clients-list/clients-list.component';
 import { ClientDetailsComponent } from './clients/client-details/client-details.component';
+import { ClientUiComponent } from './clients/client-ui/client-ui.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { ClientDetailsComponent } from './clients/client-details/client-details.
     PerformanceComponent,
     ClientsComponent,
     ClientsListComponent,
-    ClientDetailsComponent
+    ClientDetailsComponent,
+    ClientUiComponent
   ],
   imports: [
     BrowserModule,

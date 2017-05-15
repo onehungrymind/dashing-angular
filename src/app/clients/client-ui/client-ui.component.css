@@ -1,0 +1,14 @@
+.reactive-card {
+    margin-bottom: 20px;
+    height: 400px;
+}
+
+md-card-content {
+    margin-top: 10px;
+    margin-bottom: 0;
+    height: 300px;
+}
+
+md-card-actions {
+    margin-bottom: 0;
+}
