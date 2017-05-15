@@ -10,7 +10,7 @@
         *ngFor="let client of clients"
         (click)="selected.emit(client)">
         <h3 md-line>{{client.name}}</h3>
-        <button md-icon-button (click)="deleteClient(client.id);$event.stopImmediatePropagation();">
+        <button md-icon-button (click)="deleted.emit(client);$event.stopImmediatePropagation();">
           <md-icon>close</md-icon>
         </button>
         <p md-line>
