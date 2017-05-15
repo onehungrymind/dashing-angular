@@ -5,7 +5,7 @@
     <md-card>
       <md-card-header>
         <md-card-title>
-          <h1>CLIENTS</h1>
+          <h1>Clients</h1>
         </md-card-title>
       </md-card-header>
       <md-card-content>
@@ -14,7 +14,7 @@
             *ngFor="let client of clients"
             (click)="setCurrentClient(client)">
             <h3 md-line>{{client.name}}</h3>
-            <button md-icon-button (click)="deleteClient(client)">
+            <button md-icon-button (click)="deleteClient(client.id);$event.stopImmediatePropagation();">
               <md-icon>close</md-icon>
             </button>
             <p md-line>
