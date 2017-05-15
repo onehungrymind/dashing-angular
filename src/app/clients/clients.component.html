@@ -2,10 +2,8 @@
 <div class="container">
   <!-- LIST -->
   <div class="col-50">
-    <app-client-ui></app-client-ui>
-
     <app-clients-list
-      [clients]="clients"
+      [clients]="clients$ | async"
       (selected)="setCurrentClient($event)"
       (deleted)="deleteClient($event)">
     </app-clients-list>
@@ -13,7 +11,7 @@
   <!-- DETAILS -->
   <div class="col-50">
     <app-client-details
-      [client]="currentClient"
+      [client]="currentClient$ | async"
       (saved)="saveClient($event)"
       (cancelled)="cancel($event)">
     </app-client-details>

@@ -4,12 +4,14 @@ import { compose } from '@ngrx/core/compose';
 import { storeFreeze } from 'ngrx-store-freeze';
 import { environment } from '../../../environments/environment';
 
+import * as clients from './clients.reducer';
 import * as portfolios from './portfolio.reducer';
 import * as stocks from './stock.reducer';
 import * as risks from './risk.reducer';
 import * as symbols from './symbol.reducer';
 
 export interface State {
+  clients: clients.State;
   portfolios: portfolios.State;
   stocks: stocks.State;
   risks: risks.State;
@@ -17,6 +19,7 @@ export interface State {
 }
 
 const reducers = {
+  clients: clients.reducer,
   portfolios: portfolios.reducer,
   stocks: stocks.reducer,
   risks: risks.reducer,
@@ -33,6 +36,13 @@ export function reducer(state: any, action: any) {
     return developmentReducer(state, action);
   }
 }
+
+// -------------------------------------------------------------------
+// Clients Selectors
+// -------------------------------------------------------------------
+export const getClients = (state: State) => state.clients.clients;
+
+export const getSelectedClient = (state: State) => state.clients.selectedClient;
 
 // -------------------------------------------------------------------
 // Portfolio Selectors

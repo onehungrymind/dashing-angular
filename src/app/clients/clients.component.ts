@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ClientsService } from '../common/services/clients.service';
+import { Store } from '@ngrx/store';
+import { Client } from '../common/models/client.model';
+import * as reducers from '../common/reducers';
+import * as actions from '../common/actions/client.actions';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-clients',
@@ -7,10 +12,14 @@ import { ClientsService } from '../common/services/clients.service';
   styleUrls: ['./clients.component.css']
 })
 export class ClientsComponent implements OnInit {
-  clients;
-  currentClient;
+  clients$: Observable<Client[]>;
+  currentClient$: Observable<Client>;
 
-  constructor(private clientsService: ClientsService) { }
+  constructor(private clientsService: ClientsService,
+              private store: Store<reducers.State>) {
+    this.clients$ = store.select(reducers.getClients);
+    this.currentClient$ = store.select(reducers.getSelectedClient);
+  }
 
   ngOnInit() {
     this.getClients();
@@ -18,11 +27,12 @@ export class ClientsComponent implements OnInit {
   }
 
   resetCurrentClient() {
-    this.currentClient = { id: null, name: '', description: '', img: 'assets/user.jpg' };
+    const newClient = { id: null, name: '', description: '', img: 'assets/user.jpg' };
+    this.store.dispatch(new actions.SelectAction(newClient));
   }
 
   setCurrentClient(client) {
-    this.currentClient = client;
+    this.store.dispatch(new actions.SelectAction(client));
   }
 
   cancel() {
@@ -31,7 +41,8 @@ export class ClientsComponent implements OnInit {
 
   getClients() {
     this.clientsService.all()
-      .subscribe(clients => this.clients = clients);
+      .subscribe(clients =>
+        this.store.dispatch(new actions.LoadAction(clients)));
   }
 
   saveClient(client) {
@@ -43,36 +54,17 @@ export class ClientsComponent implements OnInit {
   }
 
   createClient(client) {
-    this.clientsService.create(client)
-      .subscribe(response => {
-        // add locally
-        const newClient = JSON.parse(response.text());
-        // this.clients = this.clients.concat(newClient);
-        this.clients = [...this.clients, newClient];
-
-        this.resetCurrentClient();
-      });
+    this.store.dispatch(new actions.CreateAction(client));
+    this.resetCurrentClient();
   }
 
   updateClient(client) {
-    this.clientsService.update(client)
-      .subscribe(response => {
-        // update locally
-        this.clients = this.clients.map(c => {
-          return (c.id === client.id) ? Object.assign({}, client) : c;
-        });
-
-        this.resetCurrentClient();
-      });
+    this.store.dispatch(new actions.UpdateAction(client));
+    this.resetCurrentClient();
   }
 
   deleteClient(client) {
-    this.clientsService.delete(client.id)
-      .subscribe(response => {
-        // update locally
-        this.clients = this.clients.filter(c => c.id !== client.id);
-
-        this.resetCurrentClient();
-      });
+    this.store.dispatch(new actions.DeleteAction(client));
+    this.resetCurrentClient();
   }
 }
