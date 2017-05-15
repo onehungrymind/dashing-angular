@@ -30,6 +30,8 @@ import { SymbolsComponent } from './stocks/symbols/symbols.component';
 import { PerformanceComponent } from './performance/performance.component';
 import { ChartsModule } from 'ng2-charts';
 import { ClientsComponent } from './clients/clients.component';
+import { ClientsListComponent } from './clients/clients-list/clients-list.component';
+import { ClientDetailsComponent } from './clients/client-details/client-details.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { ClientsComponent } from './clients/clients.component';
     StockHistoryComponent,
     SymbolsComponent,
     PerformanceComponent,
-    ClientsComponent
+    ClientsComponent,
+    ClientsListComponent,
+    ClientDetailsComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,27 @@
+<md-card>
+  <md-card-header>
+    <div *ngIf="currentClient.id">
+      <img md-card-avatar [src]="currentClient.img" [alt]="currentClient.name"/>
+    </div>
+    <md-card-title>
+      <h1 *ngIf="currentClient.id; else prompt">Editing {{originalName}}</h1>
+      <ng-template #prompt><h1>Create</h1></ng-template>
+    </md-card-title>
+  </md-card-header>
+  <md-card-content>
+    <form #formRef="ngForm">
+      <md-input-container class="full-width">
+        <input mdInput placeholder="Name" required
+          [(ngModel)]="currentClient.name" type="text" name="name">
+      </md-input-container>
+      <md-input-container class="full-width">
+        <input mdInput placeholder="Description"
+          [(ngModel)]="currentClient.description" type="text" name="description">
+      </md-input-container>
+    </form>
+  </md-card-content>
+  <md-card-actions>
+    <button md-button (click)="saved.emit(currentClient)" [disabled]="!formRef.valid">Save</button>
+    <button md-button (click)="cancelled.emit(currentClient)">Cancel</button>
+  </md-card-actions>
+</md-card>
