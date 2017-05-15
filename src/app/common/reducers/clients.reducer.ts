@@ -14,28 +14,9 @@ export const initialState: State = {
 
 export function reducer(state = initialState, action: Action): State {
   switch (action.type) {
-    case actions.ActionTypes.LOAD:
+    case actions.ActionTypes.LOAD_SUCCESS:
       return {
         clients: action.payload,
-        selectedClient: state.selectedClient
-      };
-    case actions.ActionTypes.CREATE:
-      return {
-        clients: [...state.clients, action.payload],
-        selectedClient: state.selectedClient
-      };
-    case actions.ActionTypes.UPDATE:
-      return {
-        clients: state.clients.map(client => {
-          return (client.id === action.payload.id)
-            ? Object.assign({}, action.payload)
-            : client;
-        }),
-        selectedClient: state.selectedClient
-      };
-    case actions.ActionTypes.DELETE:
-      return {
-        clients: state.clients.filter(client => client.id !== action.payload.id),
         selectedClient: state.selectedClient
       };
     case actions.ActionTypes.SELECT:

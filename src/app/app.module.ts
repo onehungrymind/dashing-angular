@@ -12,7 +12,7 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
-import { PortfolioEffects, RiskEffects, StockEffects, SymbolEffects } from './common/effects';
+import { PortfolioEffects, RiskEffects, StockEffects, SymbolEffects, ClientEffects } from './common/effects';
 
 import { reducer } from './common/reducers';
 
@@ -64,6 +64,7 @@ import { ClientUiComponent } from './clients/client-ui/client-ui.component';
     EffectsModule.run(RiskEffects),
     EffectsModule.run(StockEffects),
     EffectsModule.run(SymbolEffects),
+    EffectsModule.run(ClientEffects),
     ChartsModule
   ],
   providers: [

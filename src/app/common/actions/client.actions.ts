@@ -4,6 +4,7 @@ import { type } from '../util';
 
 export const ActionTypes = {
   LOAD: type('[Client] Load'),
+  LOAD_SUCCESS: type('[Client] Load Success'),
   CREATE: type('[Client] Create'),
   UPDATE: type('[Client] Update'),
   DELETE: type('[Client] Delete'),
@@ -13,6 +14,12 @@ export const ActionTypes = {
 
 export class LoadAction implements Action {
   type = ActionTypes.LOAD;
+
+  constructor() { }
+}
+
+export class LoadActionSuccess implements Action {
+  type = ActionTypes.LOAD_SUCCESS;
 
   constructor(public payload: Client[]) { }
 }
@@ -53,6 +60,7 @@ export class ClearAction implements Action {
  */
 export type Actions
   = LoadAction
+  | LoadActionSuccess
   | CreateAction
   | UpdateAction
   | DeleteAction

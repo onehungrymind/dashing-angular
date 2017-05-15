@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ClientsService } from '../common/services/clients.service';
 import { Store } from '@ngrx/store';
 import { Client } from '../common/models/client.model';
 import * as reducers from '../common/reducers';
@@ -15,14 +14,13 @@ export class ClientsComponent implements OnInit {
   clients$: Observable<Client[]>;
   currentClient$: Observable<Client>;
 
-  constructor(private clientsService: ClientsService,
-              private store: Store<reducers.State>) {
+  constructor(private store: Store<reducers.State>) {
     this.clients$ = store.select(reducers.getClients);
     this.currentClient$ = store.select(reducers.getSelectedClient);
   }
 
   ngOnInit() {
-    this.getClients();
+    this.store.dispatch(new actions.LoadAction());
     this.resetCurrentClient();
   }
 
@@ -37,12 +35,6 @@ export class ClientsComponent implements OnInit {
 
   cancel() {
     this.resetCurrentClient();
-  }
-
-  getClients() {
-    this.clientsService.all()
-      .subscribe(clients =>
-        this.store.dispatch(new actions.LoadAction(clients)));
   }
 
   saveClient(client) {
@@ -64,7 +56,7 @@ export class ClientsComponent implements OnInit {
   }
 
   deleteClient(client) {
-    this.store.dispatch(new actions.DeleteAction(client));
+    this.store.dispatch(new actions.DeleteAction(client.id));
     this.resetCurrentClient();
   }
 }
