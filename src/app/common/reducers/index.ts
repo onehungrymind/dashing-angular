@@ -40,9 +40,13 @@ export function reducer(state: any, action: any) {
 // -------------------------------------------------------------------
 // Clients Selectors
 // -------------------------------------------------------------------
-export const getClients = (state: State) => state.clients.clients;
-
-export const getSelectedClient = (state: State) => state.clients.selectedClient;
+export const getClientsState = (state: State) => state.clients;
+export const getClientIds = createSelector(getClientsState, clients.getIds);
+export const getClientEntities = createSelector(getClientsState, clients.getEntities);
+export const getSelectedClient = createSelector(getClientsState, clients.getSelected);
+export const getClients = createSelector(getClientEntities, getClientIds, (entities, ids) => {
+  return ids.map(id => entities[id]);
+});
 
 // -------------------------------------------------------------------
 // Portfolio Selectors
