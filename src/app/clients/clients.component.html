@@ -14,7 +14,7 @@
             *ngFor="let client of clients"
             (click)="setCurrentClient(client)">
             <h3 md-line>{{client.name}}</h3>
-            <button md-icon-button (click)="deleteClient(client.id)">
+            <button md-icon-button (click)="deleteClient(client)">
               <md-icon>close</md-icon>
             </button>
             <p md-line>

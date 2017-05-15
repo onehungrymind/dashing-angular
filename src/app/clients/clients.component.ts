@@ -13,21 +13,25 @@ export class ClientsComponent implements OnInit {
   constructor(private clientsService: ClientsService) { }
 
   ngOnInit() {
-    this.clients = this.clientsService.clients;
-    this.currentClient = this.resetCurrentClient();
+    this.getClients();
+    this.resetCurrentClient();
   }
 
   resetCurrentClient() {
-    return { id: null, name: '', description: '', img: '' };
+    this.currentClient = { id: null, name: '', description: '', img: 'assets/user.jpg' };
   }
 
   setCurrentClient(client) {
-    console.log('SELECTING CLIENT', client);
     this.currentClient = client;
   }
 
   cancel() {
-    this.currentClient = this.resetCurrentClient();
+    this.resetCurrentClient();
+  }
+
+  getClients() {
+    this.clientsService.all()
+      .subscribe(clients => this.clients = clients);
   }
 
   saveClient(client) {
@@ -36,19 +40,29 @@ export class ClientsComponent implements OnInit {
     } else {
       this.updateClient(client);
     }
-
-    this.resetCurrentClient();
   }
 
   createClient(client) {
-    console.log('CREATING CLIENT', client);
+    this.clientsService.create(client)
+      .subscribe(response => {
+        this.getClients();
+        this.resetCurrentClient();
+      });
   }
 
   updateClient(client) {
-    console.log('UPDATING CLIENT', client);
+    this.clientsService.update(client)
+      .subscribe(response => {
+        this.getClients();
+        this.resetCurrentClient();
+      });
   }
 
-  deleteClient(clientId) {
-    console.log('DELETING CLIENT', clientId);
+  deleteClient(client) {
+    this.clientsService.delete(client.id)
+      .subscribe(response => {
+        this.getClients();
+        this.resetCurrentClient();
+      });
   }
 }

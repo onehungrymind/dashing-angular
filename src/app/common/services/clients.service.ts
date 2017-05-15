@@ -1,24 +1,32 @@
 import { Injectable } from '@angular/core';
+import { Http } from '@angular/http';
+import { ENDPOINT_URI } from '../constants';
 
 @Injectable()
 export class ClientsService {
-  clients = [
-    {
-      'id': 1,
-      'img': 'assets/user.jpg',
-      'name': 'John Doe',
-      'description': 'Going places'
-    },
-    {
-      'id': 2,
-      'img': 'assets/user.jpg',
-      'name': 'Jane Smith',
-      'description': 'Risk averse'
-    },
-    {
-      'id': 3,
-      'img': 'assets/user.jpg',
-      'name': 'Matt Jones',
-      'description': 'High roller',
-    }];
+  model = '/clients';
+
+  constructor(private http: Http) {}
+
+  get url() {
+    return `${ENDPOINT_URI}${this.model}`;
+  }
+
+  all() {
+    return this.http.get(this.url)
+      .map(res => res.json());
+  };
+
+  create(client) {
+    return this.http.post(this.url, client);
+  };
+
+  update(client) {
+    return this.http.put(`${this.url}/${client.id}`, client);
+  };
+
+  delete(id) {
+    return this.http.delete(`${this.url}/${id}`);
+  };
 }
+
