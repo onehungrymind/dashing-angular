@@ -47,7 +47,8 @@ export class ClientsComponent implements OnInit {
       .subscribe(response => {
         // add locally
         const newClient = JSON.parse(response.text());
-        this.clients.push(newClient);
+        // this.clients = this.clients.concat(newClient);
+        this.clients = [...this.clients, newClient];
 
         this.resetCurrentClient();
       });
@@ -57,10 +58,8 @@ export class ClientsComponent implements OnInit {
     this.clientsService.update(client)
       .subscribe(response => {
         // update locally
-        this.clients.forEach((c, index) => {
-          if (c.id === client.id) {
-            this.clients.splice(index, 1, client);
-          }
+        this.clients = this.clients.map(c => {
+          return (c.id === client.id) ? Object.assign({}, client) : c;
         });
 
         this.resetCurrentClient();
@@ -71,11 +70,7 @@ export class ClientsComponent implements OnInit {
     this.clientsService.delete(client.id)
       .subscribe(response => {
         // update locally
-        this.clients.forEach((c, index) => {
-          if (c.id === client.id) {
-            this.clients.splice(index, 1);
-          }
-        });
+        this.clients = this.clients.filter(c => c.id !== client.id);
 
         this.resetCurrentClient();
       });
