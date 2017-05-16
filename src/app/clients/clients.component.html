@@ -1,4 +1,3 @@
-
 <div class="container">
   <!-- LIST -->
   <div class="col-50">
@@ -7,6 +6,10 @@
       (selected)="setCurrentClient($event)"
       (deleted)="deleteClient($event)">
     </app-clients-list>
+
+    <app-client-portfolios
+      [clients]="clientPortfolios$ | async">
+    </app-client-portfolios>
   </div>
   <!-- DETAILS -->
   <div class="col-50">
