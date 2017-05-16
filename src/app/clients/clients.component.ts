@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Client } from '../common/models/client.model';
 import * as reducers from '../common/reducers';
-import * as actions from '../common/actions/client.actions';
+import * as clientActions from '../common/actions/client.actions';
+import * as portfolioActions from '../common/actions/portfolio.actions';
 import { Observable } from 'rxjs/Observable';
 
 @Component({
@@ -13,24 +14,27 @@ import { Observable } from 'rxjs/Observable';
 export class ClientsComponent implements OnInit {
   clients$: Observable<Client[]>;
   currentClient$: Observable<Client>;
+  clientPortfolios$: Observable<Client[]>;
 
   constructor(private store: Store<reducers.State>) {
     this.clients$ = store.select(reducers.getClients);
     this.currentClient$ = store.select(reducers.getSelectedClient);
+    this.clientPortfolios$ = store.select(reducers.getClientPortfolios);
   }
 
   ngOnInit() {
-    this.store.dispatch(new actions.LoadAction());
+    this.store.dispatch(new clientActions.LoadAction());
+    this.store.dispatch(new portfolioActions.LoadAction());
     this.resetCurrentClient();
   }
 
   resetCurrentClient() {
-    const newClient = { id: null, name: '', description: '', img: 'assets/user.jpg' };
-    this.store.dispatch(new actions.SelectAction(newClient));
+    const newClient = { id: null, name: '', description: '', img: 'assets/user.jpg', portfolios: [] };
+    this.store.dispatch(new clientActions.SelectAction(newClient));
   }
 
   setCurrentClient(client) {
-    this.store.dispatch(new actions.SelectAction(client));
+    this.store.dispatch(new clientActions.SelectAction(client));
   }
 
   cancel() {
@@ -46,17 +50,17 @@ export class ClientsComponent implements OnInit {
   }
 
   createClient(client) {
-    this.store.dispatch(new actions.CreateAction(client));
+    this.store.dispatch(new clientActions.CreateAction(client));
     this.resetCurrentClient();
   }
 
   updateClient(client) {
-    this.store.dispatch(new actions.UpdateAction(client));
+    this.store.dispatch(new clientActions.UpdateAction(client));
     this.resetCurrentClient();
   }
 
   deleteClient(client) {
-    this.store.dispatch(new actions.DeleteAction(client.id));
+    this.store.dispatch(new clientActions.DeleteAction(client.id));
     this.resetCurrentClient();
   }
 }

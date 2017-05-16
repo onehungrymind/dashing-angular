@@ -38,17 +38,6 @@ export function reducer(state: any, action: any) {
 }
 
 // -------------------------------------------------------------------
-// Clients Selectors
-// -------------------------------------------------------------------
-export const getClientsState = (state: State) => state.clients;
-export const getClientIds = createSelector(getClientsState, clients.getIds);
-export const getClientEntities = createSelector(getClientsState, clients.getEntities);
-export const getSelectedClient = createSelector(getClientsState, clients.getSelected);
-export const getClients = createSelector(getClientEntities, getClientIds, (entities, ids) => {
-  return ids.map(id => entities[id]);
-});
-
-// -------------------------------------------------------------------
 // Portfolio Selectors
 // -------------------------------------------------------------------
 export const getPortfoliosState = (state: State) => state.portfolios;
@@ -91,5 +80,28 @@ export const getStocks = createSelector(getStockEntities, getStockIds, (entities
 });
 export const getStockHistory = createSelector(getStocks, getSelectedSymbol, (stocks, symbol) => {
   return !symbol ? stocks : stocks.filter(stock => stock.symbol === symbol.code);
+});
+
+// -------------------------------------------------------------------
+// Clients Selectors
+// -------------------------------------------------------------------
+export const getClientsState = (state: State) => state.clients;
+export const getClientIds = createSelector(getClientsState, clients.getIds);
+export const getClientEntities = createSelector(getClientsState, clients.getEntities);
+export const getSelectedClient = createSelector(getClientsState, clients.getSelected);
+export const getClients = createSelector(getClientEntities, getClientIds, (entities, ids) => {
+  return ids.map(id => entities[id]);
+});
+export const getClientPortfolios = createSelector(getClients, getPortfolios, (clients, portfolios) => {
+  // loop over every client
+  return clients.map(client => {
+    // loop over every client portfolio
+    const clientPortfolios = client.portfolios.map(portfolio => {
+      // find the corresponding portfolio
+      return portfolios.find(p => p.id === portfolio);
+    });
+
+    return Object.assign({}, client, { portfolios: clientPortfolios });
+  });
 });
 
