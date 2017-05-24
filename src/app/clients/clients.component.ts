@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 import { Client } from '../common/models/client.model';
 import * as reducers from '../common/reducers';
 import * as clientActions from '../common/actions/client.actions';
+import * as portfolioActions from '../common/actions/portfolio.actions';
 import { Observable } from 'rxjs/Observable';
 
 @Component({
@@ -22,6 +23,8 @@ export class ClientsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.store.dispatch(new clientActions.LoadAction());
+    this.store.dispatch(new portfolioActions.LoadAction());
     this.resetCurrentClient();
   }
 
