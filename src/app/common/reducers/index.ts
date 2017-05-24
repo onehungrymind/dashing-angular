@@ -95,7 +95,7 @@ export const getClients = createSelector(getClientEntities, getClientIds, (entit
 export const getClientPortfolios = createSelector(getClients, getPortfolios, (clients, portfolios) => {
   // loop over every client
   return clients.map(client => {
-    // loop over every client portfolio
+      // loop over every client portfolio
     const clientPortfolios = client.portfolios.map(portfolio => {
       // find the corresponding portfolio
       return portfolios.find(p => p.id === portfolio);

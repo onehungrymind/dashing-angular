@@ -20,7 +20,6 @@ export class PortfoliosComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.store.dispatch(new actions.LoadAction());
   }
 
   setCurrentPortfolio(portfolio) {
