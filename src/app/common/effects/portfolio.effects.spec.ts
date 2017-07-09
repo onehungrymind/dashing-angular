@@ -4,6 +4,7 @@ import { PortfolioEffects } from './portfolio.effects';
 import { Observable } from 'rxjs/Observable';
 import { PortfolioService } from '../services/portfolio.service';
 import * as actions from '../actions/portfolio.actions';
+import 'rxjs/add/observable/of';
 
 describe('portfolio Effects', () => {
   let runner: EffectsRunner;
