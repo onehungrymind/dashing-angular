@@ -1,4 +1,6 @@
-import { initialState, reducer, getSelectedId, totalPortfolioCount, transformClientsPortfolioCount } from './clients.reducer';
+import { initialState, reducer, getSelectedId,
+  totalPortfolioCount, transformClientsPortfolioCount,
+  makeClientKeys, makeClientEntities } from './clients.reducer';
 import { type } from '../util';
 import * as actions from '../actions/client.actions';
 import {Client} from '../models/client.model';
@@ -54,5 +56,28 @@ describe('Client reducer', () => {
     ];
 
     expect(transformClientsPortfolioCount(clients)).toEqual(updatedClients);
+  });
+
+  it('should make a collection of keys from clients', () => {
+    const clients: Client[] = [
+      {id: '1', name: 'string', description: 'string', portfolios: [{}, {}]},
+      {id: '2', name: 'string', description: 'string', portfolios: [{}, {}, {}]}
+    ];
+
+    expect(makeClientKeys(clients)).toEqual(['1', '2']);
+  });
+
+  it('should make a collection of entities from clients', () => {
+    const clients: Client[] = [
+      {id: '1', name: 'string', description: 'string', portfolios: [{}, {}]},
+      {id: '2', name: 'string', description: 'string', portfolios: [{}, {}, {}]}
+    ];
+
+    const clientEntities = {
+      '1': {id: '1', name: 'string', description: 'string', portfolios: [{}, {}]},
+      '2': {id: '2', name: 'string', description: 'string', portfolios: [{}, {}, {}]}
+    };
+
+    expect(makeClientEntities(clients)).toEqual(clientEntities);
   });
 });
