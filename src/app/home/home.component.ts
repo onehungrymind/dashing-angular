@@ -22,9 +22,9 @@ export class HomeComponent implements OnInit {
   constructor(
     private store: Store<reducers.State>
   ) {
-    this.portfolios$ = store.select(reducers.getPortfolios);
+    this.portfolios$ = this.store.select(reducers.getPortfolios);
     this.stockHistory$ = this.store.select(reducers.getStockHistory);
-  }
+  }s
 
   ngOnInit() {
     this.store.dispatch(new portfolioActions.LoadAction());
