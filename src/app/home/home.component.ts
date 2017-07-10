@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
   ) {
     this.portfolios$ = this.store.select(reducers.getPortfolios);
     this.stockHistory$ = this.store.select(reducers.getStockHistory);
-  }s
+  }
 
   ngOnInit() {
     this.store.dispatch(new portfolioActions.LoadAction());
