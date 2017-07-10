@@ -1,0 +1,22 @@
+<md-card>
+  <md-card-header>
+    <md-card-title>
+      <h1>Clients</h1>
+    </md-card-title>
+  </md-card-header>
+  <md-card-content>
+    <md-list>
+      <md-list-item
+        *ngFor="let client of clients"
+        (click)="selected.emit(client)">
+        <h3 md-line>{{client.name}}</h3>
+        <button md-icon-button (click)="deleted.emit(client);$event.stopImmediatePropagation();">
+          <md-icon>close</md-icon>
+        </button>
+        <p md-line>
+          {{client.description}}
+        </p>
+      </md-list-item>
+    </md-list>
+  </md-card-content>
+</md-card>

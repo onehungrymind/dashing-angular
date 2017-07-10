@@ -12,11 +12,11 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
-import { PortfolioEffects, RiskEffects, StockEffects, SymbolEffects } from './common/effects';
+import { PortfolioEffects, RiskEffects, StockEffects, SymbolEffects, ClientEffects } from './common/effects';
 
 import { reducer } from './common/reducers';
 
-import { PortfolioService, RiskService, StockService, SymbolService } from './common/services';
+import { PortfolioService, RiskService, StockService, SymbolService, ClientsService } from './common/services';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -29,6 +29,11 @@ import { StockHistoryComponent } from './stocks/stock-history/stock-history.comp
 import { SymbolsComponent } from './stocks/symbols/symbols.component';
 import { PerformanceComponent } from './performance/performance.component';
 import { ChartsModule } from 'ng2-charts';
+import {ClientsComponent} from './clients/clients.component';
+import {ClientsListComponent} from 'app/clients/clients-list/clients-list.component';
+import {ClientDetailsComponent} from './clients/client-details/client-details.component';
+import {ClientUiComponent} from 'app/clients/client-ui/client-ui.component';
+import {ClientPortfoliosComponent} from './clients/client-portfolios/client-portfolios.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +45,12 @@ import { ChartsModule } from 'ng2-charts';
     PortfolioDetailsComponent,
     StockHistoryComponent,
     SymbolsComponent,
-    PerformanceComponent
+    PerformanceComponent,
+    ClientsComponent,
+    ClientsListComponent,
+    ClientDetailsComponent,
+    ClientUiComponent,
+    ClientPortfoliosComponent
   ],
   imports: [
     BrowserModule,
@@ -56,13 +66,15 @@ import { ChartsModule } from 'ng2-charts';
     EffectsModule.run(RiskEffects),
     EffectsModule.run(StockEffects),
     EffectsModule.run(SymbolEffects),
+    EffectsModule.run(ClientEffects),
     ChartsModule
   ],
   providers: [
     PortfolioService,
     StockService,
     RiskService,
-    SymbolService
+    SymbolService,
+    ClientsService
   ],
   bootstrap: [AppComponent]
 })

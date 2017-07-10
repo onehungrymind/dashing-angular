@@ -1,0 +1,18 @@
+<md-card>
+  <md-card-header>
+    <md-card-title>
+      <h1>Client Portfolios</h1>
+    </md-card-title>
+  </md-card-header>
+  <md-card-content>
+    <md-list>
+      <md-list-item *ngFor="let client of clients">
+        <h3 md-line>{{client.name}}</h3>
+        <hr md-line>
+        <ul md-line>
+          <li *ngFor="let portfolio of client.portfolios">{{portfolio?.name}}</li>
+        </ul>
+      </md-list-item>
+    </md-list>
+  </md-card-content>
+</md-card>

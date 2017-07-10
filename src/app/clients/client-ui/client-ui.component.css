@@ -1,0 +1,40 @@
+.reactive-card {
+    margin-bottom: 20px;
+    height: 400px;
+}
+
+md-card-content {
+    margin-top: 10px;
+    margin-bottom: 0;
+    height: 300px;
+}
+
+md-card-actions {
+    margin-bottom: 0;
+}
+
+.container {
+    padding: 100px;
+}
+
+.ball {
+    cursor: pointer;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    background-image: radial-gradient(orange, red);
+}
+
+.circle {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    background-image: radial-gradient(#DDD, white);
+    pointer-events: none;
+}
+
+app-circle {
+    position: absolute;
+}

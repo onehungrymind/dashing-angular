@@ -187,19 +187,22 @@
       "id": 1,
       "img": "assets/user.jpg",
       "name": "John Doe",
-      "description": "Going places"
+      "description": "Going places",
+      "portfolios": ["1", "2"]
     },
     {
       "id": 2,
       "img": "assets/user.jpg",
       "name": "Jane Smith",
-      "description": "Risk averse"
+      "description": "Risk averse",
+      "portfolios": ["2", "3"]
     },
     {
       "id": 3,
       "img": "assets/user.jpg",
       "name": "Matt Jones",
-      "description": "High roller"
+      "description": "High roller",
+      "portfolios": ["3", "4"]
     }
   ]
 }
