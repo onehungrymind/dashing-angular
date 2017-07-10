@@ -12,7 +12,7 @@ describe('Client reducer', () => {
   });
 
   it('LOAD_SUCCESS should populate clients', () => {
-    const payload = [{ id: 'string', name: 'string', description: 'string', portfolios: []}];
+    const payload = [{ id: 'string', name: 'string', description: 'string', portfolios: [], totalPortfolioCount: 0}];
     const type = actions.ActionTypes.LOAD_SUCCESS;
     const action = {payload, type};
 

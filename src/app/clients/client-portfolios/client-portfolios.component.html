@@ -7,7 +7,7 @@
   <md-card-content>
     <md-list>
       <md-list-item *ngFor="let client of clients">
-        <h3 md-line>{{client.name}}</h3>
+        <h3 md-line>{{client.name}} ({{client.totalPortfolioCount}})</h3>
         <hr md-line>
         <ul md-line>
           <li *ngFor="let portfolio of client.portfolios">{{portfolio?.name}}</li>

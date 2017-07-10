@@ -21,7 +21,7 @@ export const makeClientKeys = (clients: Client[]) => clients.map(client => clien
 
 export const transformClientsPortfolioCount =
   (clients: Client[]) => clients.map((client: Client): Client => {
-    return Object.assign(client, { totalPortfolioCount: client.portfolios.length });
+    return Object.assign({}, client, { totalPortfolioCount: client.portfolios.length });
   });
 
 export const makeClientEntities = (clients: Client[]) => clients.reduce((entities: { [id: string]: Client }, client: Client) => {
@@ -31,7 +31,7 @@ export const makeClientEntities = (clients: Client[]) => clients.reduce((entitie
 }, {});
 
 export const processClients = (state: State, action: Action): State => {
-  const clients = action.payload;
+  const clients = transformClientsPortfolioCount(action.payload);
 
   return {
     ids: makeClientKeys(clients),
