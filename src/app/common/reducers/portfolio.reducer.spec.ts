@@ -1,4 +1,4 @@
-import { initialState, reducer } from './portfolio.reducer';
+import { initialState, reducer, getSelectedId } from './portfolio.reducer';
 import { type } from '../util';
 import * as actions from '../actions/portfolio.actions';
 
@@ -25,6 +25,7 @@ describe('Portfolio reducer', () => {
 
     const result = reducer(initialState, action);
     expect(result.selectedPortfolioId).toBe(payload.id);
+    expect(getSelectedId(result)).toBe(payload.id);
   });
 
   it('CLEAR should set current portfolio to null', () => {

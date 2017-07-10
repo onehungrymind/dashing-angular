@@ -29,13 +29,6 @@ describe('PortfolioService', () => {
     expect(spy.calls.mostRecent().args[0]).toContain(service.model);
   }));
 
-  it('#all should fetch all portfolios', inject([PortfolioService, Http], (service: PortfolioService, http: Http) => {
-    const spy = spyOn(http, 'get').and.returnValue(Observable.of([{}]));
-    service.all();
-    expect(spy).toHaveBeenCalled();
-    expect(spy.calls.mostRecent().args[0]).toContain(service.model);
-  }));
-
   it('#create should post a new portfolio', inject([PortfolioService, Http], (service: PortfolioService, http: Http) => {
     const spy = spyOn(http, 'post');
     service.create(mockPortfolio);
