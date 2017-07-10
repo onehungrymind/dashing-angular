@@ -28,7 +28,6 @@ describe('ClientDetailsComponent', () => {
     component.client = inputClient;
     de = fixture.debugElement;
 
-
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
