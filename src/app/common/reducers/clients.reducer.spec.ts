@@ -1,6 +1,7 @@
-import { initialState, reducer, getSelectedId } from './clients.reducer';
+import { initialState, reducer, getSelectedId, totalPortfolioCount, transformClientsPortfolioCount } from './clients.reducer';
 import { type } from '../util';
 import * as actions from '../actions/client.actions';
+import {Client} from '../models/client.model';
 
 describe('Client reducer', () => {
   it('should return state by default', () => {
@@ -31,5 +32,27 @@ describe('Client reducer', () => {
   it('CLEAR should set current client to null', () => {
     const result = reducer(initialState, {type: actions.ActionTypes.CLEAR});
     expect(result.selectedClientId).toBe(null);
+  });
+
+  it('should calculate total portfolio count', () => {
+    let client: Client = { id: 'string', name: 'string', description: 'string', portfolios: [{}, {}]};
+    expect(totalPortfolioCount(client)).toBe(2);
+
+    client = { id: 'string', name: 'string', description: 'string', portfolios: undefined};
+    expect(totalPortfolioCount(client)).toBe(0);
+  });
+
+  it('should create a totalPortfolioCount on each client in the collection', () => {
+    const clients: Client[] = [
+      {id: 'string', name: 'string', description: 'string', portfolios: [{}, {}]},
+      {id: 'string', name: 'string', description: 'string', portfolios: [{}, {}, {}]}
+    ];
+
+    const updatedClients: Client[] = [
+      {id: 'string', name: 'string', description: 'string', portfolios: [{}, {}], totalPortfolioCount: 2},
+      {id: 'string', name: 'string', description: 'string', portfolios: [{}, {}, {}], totalPortfolioCount: 3}
+    ];
+
+    expect(transformClientsPortfolioCount(clients)).toEqual(updatedClients);
   });
 });

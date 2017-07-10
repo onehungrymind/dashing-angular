@@ -15,6 +15,14 @@ export const initialState: State = {
   selectedClientId: null
 };
 
+export const totalPortfolioCount = (client: Client) => client.portfolios ? client.portfolios.length : 0;
+
+export const transformClientsPortfolioCount =
+  (clients: Client[]) => clients.map((client: Client): Client => {
+    return Object.assign(client, { totalPortfolioCount: client.portfolios.length });
+  });
+
+
 export function reducer(state = initialState, action: Action): State {
   switch (action.type) {
     case actions.ActionTypes.LOAD_SUCCESS:
