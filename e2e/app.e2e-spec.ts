@@ -1,14 +1,15 @@
-import { DashingAngularPage } from './app.po';
+import { MyAppPage } from './app.po';
 
-describe('dashing-angular App', () => {
-  let page: DashingAngularPage;
+describe('my-app App', () => {
+  let page: MyAppPage;
 
   beforeEach(() => {
-    page = new DashingAngularPage();
+    page = new MyAppPage();
   });
 
-  it('should display message saying app works', () => {
+  it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('app works!');
+
+    expect(page.getToolbarText()).toEqual('menu');
   });
 });
