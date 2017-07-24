@@ -12,6 +12,10 @@ module.exports = function (config) {
       require('karma-coverage-istanbul-reporter'),
       require('@angular/cli/plugins/karma')
     ],
+    files: [
+      // Include a Material theme in the test suite.
+      {pattern: './node_modules/@angular/material/prebuilt-themes/indigo-pink.css', included: true, watched: true},
+    ],
     client:{
       clearContext: false // leave Jasmine Spec Runner output visible in browser
     },
