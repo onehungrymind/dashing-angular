@@ -1,6 +1,9 @@
 import { initialState, reducer, getSelectedId,
   getTotalPortfolioCount,
-  transformClientsWithTotalPortfolioCount} from './clients.reducer';
+  transformClientsWithTotalPortfolioCount,
+  makeClientKeys,
+  makeClientEntities
+} from './clients.reducer';
 import { type } from '../util';
 import * as actions from '../actions/client.actions';
 import {Client} from '../models/client.model';
@@ -12,7 +15,7 @@ describe('Client reducer', () => {
   });
 
   it('LOAD_SUCCESS should populate clients', () => {
-    const payload = [{ id: 'string', name: 'string', description: 'string', portfolios: []}];
+    const payload = [{ id: 'string', name: 'string', description: 'string', portfolios: [], totalPortfolioCount: 0}];
     const type = actions.ActionTypes.LOAD_SUCCESS;
     const action = {payload, type};
 
@@ -62,5 +65,31 @@ describe('Client reducer', () => {
     ];
 
     expect(transformClientsWithTotalPortfolioCount(clients)).toEqual(updatedClients);
+  });
+
+  it('should return an array of the client keys', () => {
+    const clients: Client[] = [
+      { id: '1', name: 'string', description: 'string', portfolios: [{}, {}]},
+      { id: '2', name: 'string', description: 'string', portfolios: [{}, {}, {}]},
+      { id: '3', name: 'string', description: 'string', portfolios: undefined }
+    ];
+
+    expect(makeClientKeys(clients)).toEqual(['1', '2', '3']);
+  });
+
+  it('should return a key value pair of client entities', () => {
+    const clients: Client[] = [
+      { id: '1', name: 'string', description: 'string', portfolios: [{}, {}]},
+      { id: '2', name: 'string', description: 'string', portfolios: [{}, {}, {}]},
+      { id: '3', name: 'string', description: 'string', portfolios: undefined }
+    ];
+
+    const clientEntities = {
+      '1': { id: '1', name: 'string', description: 'string', portfolios: [{}, {}]},
+      '2': { id: '2', name: 'string', description: 'string', portfolios: [{}, {}, {}]},
+      '3': { id: '3', name: 'string', description: 'string', portfolios: undefined }
+    };
+
+    expect(makeClientEntities(clients)).toEqual(clientEntities);
   });
 });
