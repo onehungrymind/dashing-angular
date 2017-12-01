@@ -3,4 +3,5 @@ export interface Client {
   name: string;
   description: string;
   portfolios: any[];
+  totalPortfolioCount?: number;
 }

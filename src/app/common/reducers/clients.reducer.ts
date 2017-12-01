@@ -15,22 +15,34 @@ export const initialState: State = {
   selectedClientId: null
 };
 
+export const getTotalPortfolioCount = (client: Client) => client.portfolios ? client.portfolios.length : 0;
+
+export const transformClientsWithTotalPortfolioCount = (clients: Client[]): Client[] =>
+  clients.map((client: Client) => Object.assign({}, client
+    , { totalPortfolioCount: getTotalPortfolioCount(client)}));
+
+export const makeClientKeys = (clients: Client[]) => clients.map(client => client.id);
+
+export const makeClientEntities = (clients: Client[]) => clients.reduce((entities: { [id: string]: Client }, client: Client) => {
+  return Object.assign(entities, {
+    [client.id]: client
+  });
+}, {});
+
+export const transformClients = (state = initialState, action: Action): State => {
+  const clients = transformClientsWithTotalPortfolioCount(action.payload);
+
+  return {
+    ids: makeClientKeys(clients),
+    entities: makeClientEntities(clients),
+    selectedClientId: state.selectedClientId
+  };
+};
+
 export function reducer(state = initialState, action: Action): State {
   switch (action.type) {
     case actions.ActionTypes.LOAD_SUCCESS:
-      const clients = action.payload;
-      const ids = clients.map(client => client.id);
-      const entities = clients.reduce((entities: { [id: string]: Client }, client: Client) => {
-        return Object.assign(entities, {
-          [client.id]: client
-        });
-      }, {});
-
-      return {
-        ids,
-        entities,
-        selectedClientId: state.selectedClientId
-      };
+      return transformClients(state, action);
     case actions.ActionTypes.SELECT:
       return {
         ids: state.ids,
