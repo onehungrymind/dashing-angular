@@ -3,13 +3,13 @@
     height: 400px;
 }
 
-md-card-content {
+mat-card-content {
     margin-top: 10px;
     margin-bottom: 0;
     height: 300px;
 }
 
-md-card-actions {
+mat-card-actions {
     margin-bottom: 0;
 }
 

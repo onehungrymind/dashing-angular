@@ -1,16 +1,11 @@
 .select-wrapper {
   margin: 1em 0;
 }
-.select-wrapper >md-select {
+.select-wrapper >mat-select {
   margin-bottom: 22px;
 }
 
-md-card-content {
-  margin-top: 10px;
-  margin-bottom: 0;
-}
-
-md-card-actions {
+mat-card-actions {
   margin-bottom: 0;
 }
 
