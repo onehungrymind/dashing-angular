@@ -11,7 +11,7 @@ export class ClientUiComponent implements OnInit {
   message: string;
 
   ngOnInit() {
-    Observable.fromEvent(this.getNativeElement(this.btn), 'click')
+    fromEvent(this.getNativeElement(this.btn), 'click')
       .subscribe(result => this.message = 'Beast Mode Activated!');
   }
 
