@@ -1,30 +1,30 @@
-<md-card>
-	<md-card-header>
-		<md-card-title>
+<mat-card>
+	<mat-card-header>
+		<mat-card-title>
 			<h1>
 				<span *ngIf="currentPortfolio.id; else prompt">Editing {{originalName}}</span>
 				<ng-template #prompt>Create</ng-template>
 			</h1>
-		</md-card-title>
-	</md-card-header>
-	<md-card-content>
+		</mat-card-title>
+	</mat-card-header>
+	<mat-card-content>
 		<form #formRef="ngForm">
-			<md-input-container class="full-width">
-				<input mdInput placeholder="Name" required [(ngModel)]="currentPortfolio.name" type="text" name="name">
-			</md-input-container>
+			<mat-form-field class="full-width">
+				<input matInput placeholder="Name" required [(ngModel)]="currentPortfolio.name" type="text" name="name">
+			</mat-form-field>
 			<div class="select-wrapper">
-				<md-select placeholder="Risk level" [(ngModel)]="currentPortfolio.risk" name="risk" class="full-width">
-					<md-option *ngFor="let risk of risks$ | async" [value]="risk.id">{{risk.description}}</md-option>
-				</md-select>
-				<md-select placeholder="Stock symbol" [(ngModel)]="currentPortfolio.symbol" name="symbol" class="full-width">
-					<md-option *ngFor="let symbol of symbols$ | async" [value]="symbol.code">{{symbol.entity + ' (' + symbol.code + ')'}}</md-option>
-				</md-select>
+				<mat-select placeholder="Risk level" [(ngModel)]="currentPortfolio.risk" name="risk" class="full-width">
+					<mat-option *ngFor="let risk of risks$ | async" [value]="risk.id">{{risk.description}}</mat-option>
+				</mat-select>
+				<mat-select placeholder="Stock symbol" [(ngModel)]="currentPortfolio.symbol" name="symbol" class="full-width">
+					<mat-option *ngFor="let symbol of symbols$ | async" [value]="symbol.code">{{symbol.entity + ' (' + symbol.code + ')'}}</mat-option>
+				</mat-select>
 			</div>
-			<md-checkbox name="active" [(ngModel)]="currentPortfolio.active">Active</md-checkbox>
+			<mat-checkbox name="active" [(ngModel)]="currentPortfolio.active">Active</mat-checkbox>
 		</form>
-	</md-card-content>
-	<md-card-actions>
-		<button md-button (click)="savePortfolio(currentPortfolio)" [disabled]="!formRef.valid">Save</button>
-		<button md-button (click)="cancel()">Cancel</button>
-	</md-card-actions>
-</md-card>
+	</mat-card-content>
+	<mat-card-actions>
+		<button mat-button (click)="savePortfolio(currentPortfolio)" [disabled]="!formRef.valid">Save</button>
+		<button mat-button (click)="cancel()">Cancel</button>
+	</mat-card-actions>
+</mat-card>

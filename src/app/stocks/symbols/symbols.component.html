@@ -1,16 +1,16 @@
-<md-card>
-  <md-card-header>
-    <md-card-title>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
       <h1>Symbols</h1>
-    </md-card-title>
-  </md-card-header>
-  <md-card-content>
-    <md-radio-group name="symbol" [(ngModel)]="current" (change)="select.emit(current?.id)">
-      <md-radio-button name="symbol" [value]="">All</md-radio-button>
-      <md-radio-button *ngFor="let symbol of symbols"
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-radio-group name="symbol" [(ngModel)]="current" (change)="select.emit(current?.id)">
+      <mat-radio-button name="symbol" [value]="">All</mat-radio-button>
+      <mat-radio-button *ngFor="let symbol of symbols"
                        [value]="symbol">
         {{symbol.entity}} ({{symbol.code}})
-      </md-radio-button>
-    </md-radio-group>
-  </md-card-content>
-</md-card>
+      </mat-radio-button>
+    </mat-radio-group>
+  </mat-card-content>
+</mat-card>

@@ -2,6 +2,7 @@ import { createSelector } from 'reselect';
 import { Action } from '@ngrx/store';
 import { Symbol } from '../models/symbol.model';
 import * as actions from '../actions/symbol.actions';
+import { Actions } from '../actions/symbol.actions';
 
 export interface State {
   ids: string[];
@@ -15,10 +16,11 @@ export const initialState: State = {
   selectedSymbolId: null
 };
 
-export function reducer(state = initialState, action: Action): State {
+export function reducer(state = initialState, action: Actions): State {
   switch (action.type) {
     case actions.ActionTypes.LOAD_SUCCESS:
-      const portfolios = action.payload;
+      const portfolios =
+        action.payload;
       const ids = portfolios.map(portfolio => portfolio.id);
       const entities = portfolios.reduce((entities: { [id: string]: Symbol }, portfolio: Symbol) => {
         return Object.assign(entities, {
@@ -37,9 +39,8 @@ export function reducer(state = initialState, action: Action): State {
         entities: state.entities,
         selectedSymbolId: action.payload
       };
-    default: {
+    default:
       return state;
-    }
   }
 }
 
