@@ -1,3 +1,4 @@
+
 import { Action } from '@ngrx/store';
 import { Client } from '../models/client.model';
 import { type } from '../util';
@@ -44,7 +45,7 @@ export class SelectAction implements Action {
 export class ClearAction implements Action {
   type = ActionTypes.CLEAR;
 
-  constructor() { }
+  constructor(public payload?: any) { }
 }
 
 /**
