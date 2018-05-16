@@ -1,14 +1,14 @@
-:host >>> md-list-item:hover {
+:host >>> mat-list-item:hover {
     cursor: pointer;
     background: whitesmoke;
 }
 
-md-card-content {
+mat-card-content {
     margin-top: 10px;
     margin-bottom: 0;
 }
 
-md-card-actions {
+mat-card-actions {
     margin-bottom: 0;
 }
 

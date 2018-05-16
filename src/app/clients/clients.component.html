@@ -2,57 +2,57 @@
 <div class="container">
   <!-- LIST -->
   <div class="col-50">
-    <md-card>
-      <md-card-header>
-        <md-card-title>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>
           <h1>Clients</h1>
-        </md-card-title>
-      </md-card-header>
-      <md-card-content>
-        <md-list>
-          <md-list-item
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-list>
+          <mat-list-item
             *ngFor="let client of clients"
             (click)="setCurrentClient(client)">
-            <h3 md-line>{{client.name}}</h3>
-            <button md-icon-button (click)="deleteClient(client.id);$event.stopImmediatePropagation();">
-              <md-icon>close</md-icon>
+            <h3 mat-line>{{client.name}}</h3>
+            <button mat-icon-button (click)="deleteClient(client.id);$event.stopImmediatePropagation();">
+              <mat-icon>close</mat-icon>
             </button>
-            <p md-line>
+            <p mat-line>
               {{client.description}}
             </p>
-          </md-list-item>
-        </md-list>
-      </md-card-content>
-    </md-card>
+          </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
   </div>
   <!-- DETAILS -->
   <div class="col-50">
-    <md-card>
-      <md-card-header>
+    <mat-card>
+      <mat-card-header>
         <div *ngIf="currentClient.id">
-          <img md-card-avatar [src]="currentClient.img" [alt]="currentClient.name"/>
+          <img mat-card-avatar [src]="currentClient.img" [alt]="currentClient.name"/>
         </div>
-        <md-card-title>
+        <mat-card-title>
           <h1 *ngIf="currentClient.id; else prompt">Editing {{currentClient.name}}</h1>
           <ng-template #prompt><h1>Create</h1></ng-template>
-        </md-card-title>
-      </md-card-header>
-      <md-card-content>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
         <form #formRef="ngForm">
-          <md-input-container class="full-width">
-            <input mdInput placeholder="Name" required
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Name" required
               [(ngModel)]="currentClient.name" type="text" name="name">
-          </md-input-container>
-          <md-input-container class="full-width">
-            <input mdInput placeholder="Description"
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Description"
               [(ngModel)]="currentClient.description" type="text" name="description">
-          </md-input-container>
+          </mat-form-field>
         </form>
-      </md-card-content>
-      <md-card-actions>
-        <button md-button (click)="saveClient(currentClient)" [disabled]="!formRef.valid">Save</button>
-        <button md-button (click)="cancel()">Cancel</button>
-      </md-card-actions>
-    </md-card>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button (click)="saveClient(currentClient)" [disabled]="!formRef.valid">Save</button>
+        <button mat-button (click)="cancel()">Cancel</button>
+      </mat-card-actions>
+    </mat-card>
   </div>
 </div>
