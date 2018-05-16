@@ -6,7 +6,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { MaterialModule } from '@angular/material';
 
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
@@ -14,7 +13,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { PortfolioEffects, RiskEffects, StockEffects, SymbolEffects } from './common/effects';
 
-import { reducer } from './common/reducers';
+import { metaReducers, reducers } from './common/reducers';
 
 import { PortfolioService, RiskService, StockService, SymbolService, ClientsService } from './common/services';
 
@@ -30,8 +29,9 @@ import { SymbolsComponent } from './stocks/symbols/symbols.component';
 import { PerformanceComponent } from './performance/performance.component';
 import { ChartsModule } from 'ng2-charts';
 import { ClientsComponent } from './clients/clients.component';
-import { ClientsListComponent } from './clients/clients-list/clients-list.component';
+import { ClientsListComponent } from 'app/clients/clients-list/clients-list.component';
 import { ClientDetailsComponent } from './clients/client-details/client-details.component';
+import { AngularMaterialModule } from './angular-material.module';
 
 @NgModule({
   declarations: [
@@ -52,16 +52,13 @@ import { ClientDetailsComponent } from './clients/client-details/client-details.
     BrowserModule,
     FormsModule,
     HttpModule,
-    MaterialModule,
+    AngularMaterialModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    StoreModule.provideStore(reducer),
     // must come AFTER `provideStore` call
-    StoreDevtoolsModule.instrumentOnlyWithExtension(),
-    EffectsModule.run(PortfolioEffects),
-    EffectsModule.run(RiskEffects),
-    EffectsModule.run(StockEffects),
-    EffectsModule.run(SymbolEffects),
+    StoreDevtoolsModule.instrument(),
+    EffectsModule.forRoot([PortfolioEffects, RiskEffects, StockEffects, SymbolEffects]),
+    StoreModule.forRoot(reducers, { metaReducers }),
     ChartsModule
   ],
   providers: [
@@ -73,4 +70,5 @@ import { ClientDetailsComponent } from './clients/client-details/client-details.
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

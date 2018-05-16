@@ -8,6 +8,7 @@ import 'rxjs/add/operator/switchMap';
 
 import * as portfolio from '../actions/portfolio.actions';
 import { PortfolioService } from '../services/portfolio.service';
+import { CreateAction, DeleteAction, UpdateAction } from '../actions/portfolio.actions';
 
 @Injectable()
 export class PortfolioEffects {
@@ -18,21 +19,21 @@ export class PortfolioEffects {
   ;
 
   @Effect() create$ = this.actions$
-    .ofType(portfolio.ActionTypes.CREATE)
+    .ofType<CreateAction>(portfolio.ActionTypes.CREATE)
     .map(action => action.payload)
     .switchMap(portfolio => this.portfolioService.create(portfolio))
     .map(result => new portfolio.LoadAction())
   ;
 
   @Effect() update$ = this.actions$
-    .ofType(portfolio.ActionTypes.UPDATE)
+    .ofType<UpdateAction>(portfolio.ActionTypes.UPDATE)
     .map(action => action.payload)
     .switchMap(portfolio => this.portfolioService.update(portfolio))
     .map(result => new portfolio.LoadAction())
   ;
 
   @Effect() delete$ = this.actions$
-    .ofType(portfolio.ActionTypes.DELETE)
+    .ofType<DeleteAction>(portfolio.ActionTypes.DELETE)
     .map(action => action.payload)
     .switchMap(portfolioId => this.portfolioService.delete(portfolioId))
     .map(result => new portfolio.LoadAction())
