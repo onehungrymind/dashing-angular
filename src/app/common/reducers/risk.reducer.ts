@@ -2,6 +2,7 @@ import { createSelector } from 'reselect';
 import { Action } from '@ngrx/store';
 import { Risk } from '../models/risk.model';
 import * as actions from '../actions/risk.actions';
+import { Actions } from '../actions/risk.actions';
 
 export interface State {
   ids: string[];
@@ -13,7 +14,7 @@ export const initialState: State = {
   entities: {}
 };
 
-export function reducer(state = initialState, action: Action) {
+export function reducer(state = initialState, action: Actions) {
   switch (action.type) {
     case actions.ActionTypes.LOAD_SUCCESS:
       const risks = action.payload;
@@ -28,9 +29,8 @@ export function reducer(state = initialState, action: Action) {
         ids,
         entities
       };
-    default: {
+    default:
       return state;
-    }
   }
 }
 
