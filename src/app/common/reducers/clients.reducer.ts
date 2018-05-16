@@ -2,6 +2,7 @@ import { createSelector } from 'reselect';
 import { Action } from '@ngrx/store';
 import { Client } from '../models/client.model';
 import * as actions from '../actions/client.actions';
+import { Actions } from '../actions/client.actions';
 
 export interface State {
   ids: string[];
@@ -15,7 +16,7 @@ export const initialState: State = {
   selectedClientId: null
 };
 
-export function reducer(state = initialState, action: Action): State {
+export function reducer(state = initialState, action: Actions): State {
   switch (action.type) {
     case actions.ActionTypes.LOAD_SUCCESS:
       const clients = action.payload;
