@@ -25,18 +25,18 @@ describe('PortfolioListComponent', () => {
 
   it('should contain an h3 with portfolio name and symbol', () => {
     const portfolio = component.portfolios[0];
-    const h3 = de.query(By.css('md-list-item h3'));
+    const h3 = de.query(By.css('mat-list-item h3'));
 
     expect(h3.nativeElement.innerText).toBe(`${portfolio.name} | ${portfolio.symbol}`);
   });
 
   it('should show/hide button based on `readOnly` input', () => {
-    let button = de.query(By.css('md-list-item button'));
+    let button = de.query(By.css('mat-list-item button'));
     expect(button).toBeNull();
 
     component.readOnly = false;
     fixture.detectChanges();
-    button = de.query(By.css('md-list-item button'));
+    button = de.query(By.css('mat-list-item button'));
 
     expect(button).not.toBeNull();
   });
@@ -45,7 +45,7 @@ describe('PortfolioListComponent', () => {
     let selected: Portfolio;
     const expected = component.portfolios[0];
 
-    const li = de.query(By.css('md-list-item'));
+    const li = de.query(By.css('mat-list-item'));
     component.select.subscribe((portfolio: Portfolio) => selected = portfolio);
 
     li.triggerEventHandler('click', null);
@@ -59,7 +59,7 @@ describe('PortfolioListComponent', () => {
     component.readOnly = false;
     fixture.detectChanges();
     component.delete.subscribe((id: string) => deletedId = id);
-    const deleteButton = de.query(By.css('md-list-item button'));
+    const deleteButton = de.query(By.css('mat-list-item button'));
 
     deleteButton.triggerEventHandler('click', {stopImmediatePropagation: () => {}});
     expect(deletedId).toBe(expectedId);

@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import '~https://fonts.googleapis.com/icon?family=Material+Icons';
+@import 'https://fonts.googleapis.com/icon?family=Material+Icons';
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
 html {
@@ -13,7 +13,7 @@ body {
     display: flex;
 }
 
-md-toolbar-row {
+mat-toolbar-row {
     justify-content: space-between;
 }
 
@@ -21,24 +21,24 @@ p {
     margin: 16px;
 }
 
-[md-raised-button] {
+[mat-raised-button] {
     width: 100%;
 }
 
-md-grid-list {
+mat-grid-list {
     max-width: 1403px;
     margin: 16px;
 }
 
-md-sidenav-layout {
+mat-sidenav-layout {
     height: 100vh;
 }
 
-md-sidenav {
+mat-sidenav {
     width: 320px;
 }
 
-md-sidenav a {
+mat-sidenav a {
     box-sizing: border-box;
     display: block;
     font-size: 14px;
@@ -102,11 +102,11 @@ td {
     flex: 1;
 }
 
-md-card-header .mat-card-header-text {
+mat-card-header .mat-card-header-text {
     margin-left: 0;
     border-bottom: 1px solid #ffd740;
 }
 
-md-card-title h1 {
+mat-card-title h1 {
     display: inline;
 }
