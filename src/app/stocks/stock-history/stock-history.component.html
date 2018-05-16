@@ -1,10 +1,10 @@
-<md-card>
-	<md-card-header>
-		<md-card-title>
+<mat-card>
+	<mat-card-header>
+		<mat-card-title>
 			<h1>Stocks</h1>
-		</md-card-title>
-	</md-card-header>
-	<md-card-content>
+		</mat-card-title>
+	</mat-card-header>
+	<mat-card-content>
 		<table>
 			<thead>
 			<tr>
@@ -19,13 +19,13 @@
 			<tr *ngFor="let quote of history">
 				<td>{{quote.symbol}}</td>
 				<td>{{quote.date | date: 'MMM dd, yyyy'}}</td>
-				<td>{{quote.open | currency:'USD':true}}</td>
-				<td>{{quote.close | currency:'USD':true}}</td>
+				<td>{{quote.open | currency:'USD':'symbol'}}</td>
+				<td>{{quote.close | currency:'USD':'symbol'}}</td>
 				<td>{{quote.volume}}</td>
 			</tr>
 			</tbody>
 		</table>
-	</md-card-content>
-	<md-card-actions>
-	</md-card-actions>
-</md-card>
+	</mat-card-content>
+	<mat-card-actions>
+	</mat-card-actions>
+</mat-card>

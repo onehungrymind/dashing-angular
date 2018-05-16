@@ -2,6 +2,7 @@ import { createSelector } from 'reselect';
 import { Action } from '@ngrx/store';
 import { Portfolio } from '../models/portfolio.model';
 import * as actions from '../actions/portfolio.actions';
+import { Actions } from '../actions/portfolio.actions';
 
 export interface State {
   ids: string[];
@@ -15,7 +16,7 @@ export const initialState: State = {
   selectedPortfolioId: null
 };
 
-export function reducer(state = initialState, action: Action): State {
+export function reducer(state = initialState, action: Actions): State {
   switch (action.type) {
     case actions.ActionTypes.LOAD_SUCCESS:
       const portfolios = action.payload;
@@ -43,9 +44,8 @@ export function reducer(state = initialState, action: Action): State {
         entities: state.entities,
         selectedPortfolioId: null
       };
-    default: {
+    default:
       return state;
-    }
   }
 }
 

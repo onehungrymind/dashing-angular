@@ -1,26 +1,26 @@
-<md-toolbar color="primary">
-  <button (click)="sidenav.toggle()" md-mini-fab><md-icon>menu</md-icon></button>
+<mat-toolbar color="primary">
+  <button (click)="sidenav.toggle()" mat-mini-fab><mat-icon>menu</mat-icon></button>
   <span>
     Dashing Angular
   </span>
-</md-toolbar>
+</mat-toolbar>
 
-<md-sidenav-container>
-  <md-sidenav #sidenav mode="side" class="app-sidenav">
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="side" class="app-sidenav">
     <nav>
-      <a md-button
+      <a mat-button
         class="nav-link"
         *ngFor="let link of links"
         [routerLink]="link.path"
         routerLinkActive="active">
-        <md-icon>{{link.icon}}</md-icon> &nbsp;
+        <mat-icon>{{link.icon}}</mat-icon> &nbsp;
         {{link.label}}
       </a>
     </nav>
-  </md-sidenav>
+  </mat-sidenav>
 
   <div class="app-content">
     <router-outlet></router-outlet>
   </div>
-</md-sidenav-container>
+</mat-sidenav-container>
 
