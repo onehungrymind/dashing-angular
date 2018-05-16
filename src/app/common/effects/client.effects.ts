@@ -8,6 +8,7 @@ import 'rxjs/add/operator/switchMap';
 
 import * as client from '../actions/client.actions';
 import { ClientsService } from '../services/clients.service';
+import { CreateAction, DeleteAction, UpdateAction } from '../actions/client.actions';
 
 @Injectable()
 export class ClientEffects {
@@ -18,21 +19,21 @@ export class ClientEffects {
   ;
 
   @Effect() create$ = this.actions$
-    .ofType(client.ActionTypes.CREATE)
+    .ofType<CreateAction>(client.ActionTypes.CREATE)
     .map(action => action.payload)
     .switchMap(client => this.clientService.create(client))
     .map(result => new client.LoadAction())
   ;
 
   @Effect() update$ = this.actions$
-    .ofType(client.ActionTypes.UPDATE)
+    .ofType<UpdateAction>(client.ActionTypes.UPDATE)
     .map(action => action.payload)
     .switchMap(client => this.clientService.update(client))
     .map(result => new client.LoadAction())
   ;
 
   @Effect() delete$ = this.actions$
-    .ofType(client.ActionTypes.DELETE)
+    .ofType<DeleteAction>(client.ActionTypes.DELETE)
     .map(action => action.payload)
     .switchMap(clientId => this.clientService.delete(clientId))
     .map(result => new client.LoadAction())

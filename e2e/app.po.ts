@@ -6,6 +6,6 @@ export class MyAppPage {
   }
 
   getToolbarText() {
-    return element(by.css('app-root md-toolbar span')).getText();
+    return element(by.css('app-root mat-toolbar span')).getText();
   }
 }

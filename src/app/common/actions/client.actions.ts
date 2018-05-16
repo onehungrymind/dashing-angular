@@ -1,3 +1,4 @@
+
 import { Action } from '@ngrx/store';
 import { Client } from '../models/client.model';
 import { type } from '../util';
@@ -15,7 +16,7 @@ export const ActionTypes = {
 export class LoadAction implements Action {
   type = ActionTypes.LOAD;
 
-  constructor() { }
+  constructor(public payload?: any) { }
 }
 
 export class LoadActionSuccess implements Action {
@@ -51,7 +52,7 @@ export class SelectAction implements Action {
 export class ClearAction implements Action {
   type = ActionTypes.CLEAR;
 
-  constructor() { }
+  constructor(public payload?: any) { }
 }
 
 /**
