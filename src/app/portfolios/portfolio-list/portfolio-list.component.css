@@ -1,4 +1,4 @@
-md-list-item:not(:first-of-type) {
+mat-list-item:not(:first-of-type) {
   border-top: 1px solid #efefef;
 }
 

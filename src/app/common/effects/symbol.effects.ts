@@ -8,11 +8,12 @@ import 'rxjs/add/operator/switchMap';
 
 import * as symbol from '../actions/symbol.actions';
 import { SymbolService } from '../services/symbol.service';
+import { LoadAction } from '../actions/symbol.actions';
 
 @Injectable()
 export class SymbolEffects {
   @Effect() load$ = this.actions$
-    .ofType(symbol.ActionTypes.LOAD)
+    .ofType<LoadAction>(symbol.ActionTypes.LOAD)
     .switchMap(() => this.symbolService.all())
     .map(symbols => new symbol.LoadActionSuccess(symbols))
   ;
